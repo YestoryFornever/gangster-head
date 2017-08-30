@@ -42,7 +42,7 @@ module.exports = (opt) => {
 					exclude: /node_modules/,//黑名单
 				},
 				{
-					test: /\.less$/,
+					test: /\.css$/,
 					use: [
 						'style-loader',
 						'css-loader',
@@ -55,6 +55,20 @@ module.exports = (opt) => {
 						'less-loader'
 					],
 					include: helpers.root('src')//白名单
+				},
+				{
+					test: /\.less$/,
+					use: [
+						'style-loader',
+						'css-loader',
+						{
+							loader: 'postcss-loader',
+							options: {
+								browsers: ["last 2 version"]
+							}
+						},
+						'less-loader'
+					],
 				},
 				{
 					test: /\.(png|jpg|woff|woff2)$/,
