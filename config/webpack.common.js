@@ -4,6 +4,7 @@ const path = require('path');
 const helpers = require('./helpers');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const ProvidePlugin = webpack.ProvidePlugin;
 
 const node_modules_path = __dirname + '/node_modules/';
@@ -46,32 +47,35 @@ module.exports = (opt) => {
 				},
 				{
 					test: /\.css$/,
-					use: [
-						'style-loader',
-						'css-loader',
-						{
-							loader: 'postcss-loader',
-							options: {
-								browsers: ["last 2 version"]
+					use:ExtractTextPlugin.extract({
+						fallback:'style-loader',
+						use:[
+							'css-loader',
+							{
+								loader: 'postcss-loader',
+								options: {
+									browsers: ["last 2 version"]
+								}
 							}
-						},
-						'less-loader'
-					],
+						]
+					}),
 					include: helpers.root('src')//白名单
 				},
 				{
 					test: /\.less$/,
-					use: [
-						'style-loader',
-						'css-loader',
-						{
-							loader: 'postcss-loader',
-							options: {
-								browsers: ["last 2 version"]
-							}
-						},
-						'less-loader'
-					],
+					use: ExtractTextPlugin.extract({
+						fallback: 'style-loader',
+						use: [
+							'css-loader',
+							{
+								loader: 'postcss-loader',
+								options: {
+									browsers: ["last 2 version"]
+								}
+							},
+							'less-loader'
+						]
+					}),
 				},
 				{
 					test: /\.(png|jpg|woff|woff2)$/,
@@ -88,7 +92,8 @@ module.exports = (opt) => {
 			}),
 			new CopyWebpackPlugin([
 				{ from: 'src/materials', to: 'materials' },
-			])
+			]),
+			new ExtractTextPlugin('[name].css')
 		],
 	}
 }; 
