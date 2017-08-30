@@ -2,6 +2,8 @@ import './login.less';
 import React, { Component, PropTypes } from 'react';
 import { Route, Link } from 'react-router-dom';
 
+import { DatePicker } from 'antd';
+
 const Login = ({ onLogin, authenticated }) => {
 	return (
 		<div>
@@ -18,6 +20,7 @@ const Login = ({ onLogin, authenticated }) => {
 					<button>
 						<Link to="/error">错误</Link>
 					</button>
+					<DatePicker />
 				</section>
 			</main>
 		</div>
