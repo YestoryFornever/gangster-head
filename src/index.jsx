@@ -77,9 +77,12 @@ render(
 	document.getElementById('app')
 );
 
-// redux-thunk - 实现异步action （ajax）
-// redux-gen - 生成器
-// react-router-redux - 路由
-// react-redux-form - 表单提交
-// css module
-// extract-text-webpack-plugin
+/**
+ * 路由缓存
+ * css module
+ * redux-gen - 生成器
+ * react-redux-form - 表单提交
+ * #react-router-redux - 路由
+ * #extract-text-webpack-plugin
+ * #redux-thunk - 实现异步action （ajax）
+ */

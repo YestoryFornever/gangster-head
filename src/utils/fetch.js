@@ -4,15 +4,15 @@ import fetch from 'isomorphic-fetch'
 promise.polyfill();
 
 export const _json = (options) => {
-	options.url = "http://easy-mock.com/mock/59a505e17b7ac306cc2ebc2f/example/" + options.url;
+	options.url = "http://127.0.0.1:2109/api/" + options.url;
 	const { url, type, data, ...others } = options;
 	let opts = {
 		...others,
 		method: type || 'get',
 		headers: {
 			'Accept': 'application/json',
-			'Content-Type': 'application/json'
-		}
+			'Content-Type': 'application/json;charset=utf-8'
+		},
 	}
 	if (!!~['POST', 'PUT'].indexOf(opts.method.toUpperCase())) {
 		opts.body = JSON.stringify(data)

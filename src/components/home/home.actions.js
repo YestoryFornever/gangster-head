@@ -12,7 +12,7 @@ export const test = (opts) => (
         const { data, success, error } = opts;
         _json({
             type: "GET",
-            url: "/test",
+            url: "user/list",
             data: data,
             success: req => {
                 console.log(req);
