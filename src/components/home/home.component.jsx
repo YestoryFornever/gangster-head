@@ -19,6 +19,9 @@ const Home = ({ match, onLogout, authenticated, test }) => {
 				test(1);
 			}
 			}>test</Button>
+			<Button>
+				<Link to="/error">错误</Link>
+			</Button>
 			<h2>二级路由</h2>
 			<ul>
 				<li>

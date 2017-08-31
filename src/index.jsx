@@ -54,14 +54,13 @@ render(
 		<div className="Provider">
 			<Router history={history}>
 				<div className="Router">
-					<ul>
+					{/* <ul>
 						<li><Link to="/">Login</Link></li>
 						<li><Link to="/home">Home</Link></li>
 						<li><Link to="/error">Error</Link></li>
 					</ul>
-					<hr />
+					<hr /> */}
 					<Route exact path="/" component={Login} />
-					{/* <Route path="/home" component={Home} /> */}
 					<Route path="/home" render={(props) => {//此处必须把父级组件的属性传入子级组件
 							return store.getState().login.auth 
 								? ( <Home {...props}/> ) 
