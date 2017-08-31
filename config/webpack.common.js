@@ -13,14 +13,14 @@ const commonConfig = require('./webpack.common.js');
 module.exports = (opt) => {
 	return {
 		entry: {
-			bundle: './src/index.jsx'
+			main: './src/index.jsx'
 		},//入口文件
 		resolve: {
-			extensions: ['.js', '.jsx']
+			extensions: ['.js', '.jsx'],
 		},
 		output: {
-			path: path.resolve(__dirname, 'dist'),//输出文件目录（__dirname指的是当前目录）
-			filename: './[name].js',//打包后文件名对应entry中的key名:e.g. bundle
+			path: helpers.root('dist'),//输出文件目录（__dirname指的是当前目录）
+			filename: './[name].bundle.js',//打包后文件名对应entry中的key名:e.g. bundle
 			publicPath: 'http://127.0.0.1:9999/',
 		},
 		module: {
@@ -47,35 +47,42 @@ module.exports = (opt) => {
 				},
 				{
 					test: /\.css$/,
-					use:ExtractTextPlugin.extract({
-						fallback:'style-loader',
-						use:[
-							'css-loader',
-							{
-								loader: 'postcss-loader',
-								options: {
-									browsers: ["last 2 version"]
-								}
+					use:[
+						{
+							loader:'css-loader',
+							options: {
+								modules:true,
+								localIdentName: '[path][name]__[local]--[hash:base64:5]'
 							}
-						]
-					}),
+						},
+						{
+							loader: 'postcss-loader',
+							options: {
+								browsers: ["last 2 version"]
+							}
+						}
+					],
 					include: helpers.root('src')//白名单
 				},
 				{
 					test: /\.less$/,
-					use: ExtractTextPlugin.extract({
-						fallback: 'style-loader',
-						use: [
-							'css-loader',
-							{
-								loader: 'postcss-loader',
-								options: {
-									browsers: ["last 2 version"]
-								}
-							},
-							'less-loader'
-						]
-					}),
+					use: [
+						'style-loader',
+						{
+							loader:'css-loader',
+							options: {
+								modules:true,
+								localIdentName: '[path][name]__[local]--[hash:base64:5]'
+							}
+						},
+						{
+							loader: 'postcss-loader',
+							options: {
+								browsers: ["last 2 version"]
+							}
+						},
+						'less-loader'
+					],
 				},
 				{
 					test: /\.(png|jpg|woff|woff2)$/,
@@ -92,8 +99,7 @@ module.exports = (opt) => {
 			}),
 			new CopyWebpackPlugin([
 				{ from: 'src/materials', to: 'materials' },
-			]),
-			new ExtractTextPlugin('[name].css')
+			])
 		],
 	}
 }; 

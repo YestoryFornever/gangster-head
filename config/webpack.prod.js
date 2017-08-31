@@ -33,6 +33,55 @@ module.exports = (opt) => {
 	return webpackMerge(
 		commonConfig(),
 		{
+			module: {
+				rules: [
+					{
+						test: /\.css$/,
+						use: ExtractTextPlugin.extract({
+							fallback: 'style-loader',
+							use: [
+								{
+									loader: 'css-loader',
+									options: {
+										modules: true,
+										localIdentName: '[path][name]__[local]--[hash:base64:5]'
+									}
+								},
+								{
+									loader: 'postcss-loader',
+									options: {
+										browsers: ["last 2 version"]
+									}
+								}
+							]
+						}),
+						include: helpers.root('src')//白名单
+					},
+					{
+						test: /\.less$/,
+						use: ExtractTextPlugin.extract({
+							fallback: 'style-loader',
+							use:[
+								'style-loader',
+								{
+									loader: 'css-loader',
+									options: {
+										modules: true,
+										localIdentName: '[path][name]__[local]--[hash:base64:5]'
+									}
+								},
+								{
+									loader: 'postcss-loader',
+									options: {
+										browsers: ["last 2 version"]
+									}
+								},
+								'less-loader'
+							]
+						}),
+					},
+				]
+			},
 			devtool: 'source-map',//生成sourcemap文件,便于调试
 			plugins:[
 				new UglifyJsPlugin({
@@ -59,6 +108,7 @@ module.exports = (opt) => {
 						drop_console: true
 					},
 				}),
+				new ExtractTextPlugin('[name].css')
 			]
 		}
 	)
