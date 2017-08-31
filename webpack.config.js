@@ -1,3 +1,5 @@
+process.traceDeprecation = true;
+// process.noDeprecation = true; 隐藏报错
 switch (process.env.NODE_ENV) {
 	case 'prod':
 	case 'production':
