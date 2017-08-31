@@ -33,6 +33,10 @@ module.exports = (opt) => {
 	return webpackMerge(
 		commonConfig(),
 		{
+			output: {
+				filename: '[name].[chunkhash].bundle.js',
+				chunkFilename: '[name].[chunkhash].chunk.js'
+			},
 			module: {
 				rules: [
 					{

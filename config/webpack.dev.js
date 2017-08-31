@@ -29,6 +29,10 @@ module.exports = (opt) => {
 	return webpackMerge(
 		commonConfig(),
 		{
+			output: {
+				filename: '[name].bundle.js',//打包后文件名对应entry中的key名:e.g. bundle
+				chunkFilename: '[id].chunk.js',
+			},
 			devtool: 'cheap-module-eval-source-map',//生成sourcemap文件,便于调试 --devtool "xxx"[package.json]
 			devServer: {
 				port: METADATA.port,
