@@ -35,7 +35,7 @@ module.exports = (opt) => {
 			extensions: ['.js', '.jsx'],
 		},
 		output: {
-			path: helpers.root('../gangster/public'),//输出文件目录（__dirname指的是当前目录）
+			path: helpers.root('../gangster-butt/public'),//输出文件目录（__dirname指的是当前目录）
 			// publicPath: 'http://127.0.0.1:9999/',
 		},
 		module: {
