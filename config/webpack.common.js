@@ -10,6 +10,22 @@ const ProvidePlugin = webpack.ProvidePlugin;
 const node_modules_path = __dirname + '/node_modules/';
 const commonConfig = require('./webpack.common.js');
 
+const fs = require('fs');
+const pkgPath = path.join(helpers.root(), 'package.json');
+const pkg = fs.existsSync(pkgPath) ? require(pkgPath) : {};
+let theme = {};
+if (pkg.theme && typeof (pkg.theme) === 'string') {
+	let cfgPath = pkg.theme;
+	// relative path
+	if (cfgPath.charAt(0) === '.') {
+		cfgPath = path.resolve(helpers.root(), cfgPath);
+	}
+	const getThemeConfig = require(cfgPath);
+	theme = getThemeConfig();
+} else if (pkg.theme && typeof (pkg.theme) === 'object') {
+	theme = pkg.theme;
+}
+
 module.exports = (opt) => {
 	return {
 		entry: {
@@ -78,7 +94,13 @@ module.exports = (opt) => {
 								browsers: ["last 2 version"]
 							}
 						},
-						'less-loader'
+						{
+							loader:'less-loader',
+							options:{
+								// sourceMap:true,
+								modifyVars:theme
+							}
+						}
 					],
 				},
 				{
