@@ -2,7 +2,7 @@ import './login.less';
 import React, { Component, PropTypes } from 'react';
 import { Route, Link } from 'react-router-dom';
 
-import { DatePicker } from 'antd';
+import { Button, DatePicker } from 'antd';
 
 const Login = ({ onLogin, authenticated }) => {
 	return (
@@ -12,14 +12,14 @@ const Login = ({ onLogin, authenticated }) => {
 			</header>
 			<main>
 				<section className="login-dialog">
-					<button onClick={e=>{
+					<Button type='primary' onClick={e=>{
 						e.preventDefault();
 						onLogin(true);}
-					}>登录</button>
+					}>登录</Button>
 					{ authenticated && ( <span>asdf</span> ) }
-					<button>
+					<Button>
 						<Link to="/error">错误</Link>
-					</button>
+					</Button>
 					<DatePicker />
 				</section>
 			</main>

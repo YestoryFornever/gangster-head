@@ -91,13 +91,14 @@ module.exports = (opt) => {
 						{
 							loader: 'postcss-loader',
 							options: {
+								sourceMap: true,
 								browsers: ["last 2 version"]
 							}
 						},
 						{
 							loader:'less-loader',
 							options:{
-								// sourceMap:true,
+								sourceMap:true,
 								modifyVars:theme
 							}
 						}
