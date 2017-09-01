@@ -1,4 +1,4 @@
-import { AUTHENTICATED } from '../../utils/actions';
+import { AUTHENTICATED } from 'alias_utils/js/actions';
 export default function login(state = false, action){
 	// console.log(action);
 	switch (action.type) {

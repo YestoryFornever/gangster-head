@@ -1,4 +1,4 @@
-import { _json } from '../../utils/fetch'
+import { _json } from 'alias_utils/js/fetch'
 /*
  * action 类型
  */

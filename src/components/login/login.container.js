@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import { setAuthenticate } from '../../utils/actions'
-import { history } from '../../utils/history'
+import { setAuthenticate } from 'alias_utils/js/actions'
+import { history } from 'alias_utils/js/history'
 import Login from './login.component'
 const _s = (state) => {
 	return {

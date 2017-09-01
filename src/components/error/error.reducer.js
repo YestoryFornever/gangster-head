@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO } from '../../utils/actions';
+import { ADD_TODO, TOGGLE_TODO } from 'alias_utils/js/actions';
 
 export function error(state = [], action){
 	switch (action.type) {

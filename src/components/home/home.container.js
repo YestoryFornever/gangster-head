@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import { setAuthenticate, test } from '../../utils/actions'
-import { history } from '../../utils/history'
+import { setAuthenticate, test } from 'alias_utils/js/actions'
+import { history } from 'alias_utils/js/history'
 import Home from './home.component'
 const _s = (state) => {
 	// console.log(state);

@@ -33,6 +33,10 @@ module.exports = (opt) => {
 		},//入口文件
 		resolve: {
 			extensions: ['.js', '.jsx'],
+			alias:{
+				alias_components:helpers.root('src/components'),
+				alias_utils:helpers.root('src/utils')
+			}
 		},
 		output: {
 			path: helpers.root('../gangster-butt/public'),//输出文件目录（__dirname指的是当前目录）
@@ -100,7 +104,11 @@ module.exports = (opt) => {
 							loader:'less-loader',
 							options:{
 								sourceMap:true,
-								modifyVars:theme
+								modifyVars:theme,
+								paths:[
+									helpers.root('node_modules'),
+									helpers.root('src/utils/styles'),
+								]
 							}
 						}
 					],
