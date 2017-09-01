@@ -1,3 +1,4 @@
+import 'alias_utils/styles/recovery.less'
 import './login.less';
 import React, { Component, PropTypes } from 'react';
 import { Route, Link } from 'react-router-dom';
