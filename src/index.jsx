@@ -24,6 +24,7 @@ import { ConnectedRouter as Router, routerMiddleware, push } from 'react-router-
  */
 import Login from './components/login/login.container'
 import Home from './components/home/home.container'
+import Manager from './components/manager/manager.container'
 import Error from './components/error/error.container'
 /* 
  * DevTools
@@ -60,8 +61,9 @@ render(
 						<li><Link to="/error">Error</Link></li>
 					</ul>
 					<hr /> */}
-					<Route exact path="/" component={Login} />
-					<Route path="/home" render={(props) => {//此处必须把父级组件的属性传入子级组件
+					<Route exact path="/" render={(props) => (<Home {...props}/>) } />
+					<Route path="/login" component={Login} />
+					<Route path="/manager" render={(props) => {//此处必须把父级组件的属性传入子级组件
 							return store.getState().login.auth 
 								? ( <Home {...props}/> ) 
 								: ( <Redirect to="/" /> )

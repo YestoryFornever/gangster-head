@@ -1,17 +1,12 @@
-import './home.less';
+import './manager.less';
 import React, { Component, PropTypes } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 import { Button, DatePicker } from 'antd';
-const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
+const Manager = ({ match, onLogout, authenticated, test }) => {
 	return (
 		<div>
-			Home
-			<Button type='primary' onClick={e => {
-				e.preventDefault();
-				onLogin(true);
-			}
-			}>登录</Button>
+			Manager
 			<Button type='primary' onClick={e => {
 				e.preventDefault();
 				onLogout(false);
@@ -53,4 +48,4 @@ const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 	)
 };
 const Topic = ({match})=>{return (<div><h3>{match.params.topicId}</h3></div>)};
-export default Home;
+export default Manager;

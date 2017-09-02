@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { setAuthenticate, test } from 'alias_utils/js/actions'
 import { history } from 'alias_utils/js/history'
-import Home from './home.component'
+import Manager from './manager.component'
 const _s = (state) => {
 	// console.log(state);
 	return {
@@ -10,9 +10,6 @@ const _s = (state) => {
 }
 const _d = (dispatch) => {
 	return {
-		onLogin: ()=>{
-			history.push('/login');
-		},
 		onLogout: (auth) => {
 			dispatch(setAuthenticate(auth));
 			history.push('/');
@@ -29,4 +26,4 @@ const _d = (dispatch) => {
 		}
 	}
 }
-export default connect(_s, _d)(Home);
+export default connect(_s, _d)(Manager);

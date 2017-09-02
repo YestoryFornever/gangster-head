@@ -11,7 +11,7 @@ const _d = (dispatch) => {
 	return {
 		onLogin: (auth) => {
 			dispatch(setAuthenticate(auth));
-			history.push('/home');
+			history.push('/manager');
 		}
 	}
 }
