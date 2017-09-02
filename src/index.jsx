@@ -69,7 +69,7 @@ render(
 								: ( <Redirect to="/" /> )
 						}
 					} />
-					<Route path="/error" component={Error} />
+					<Route component={Error} />
 				</div>
 			</Router>
 			{/* <DevTools /> */}
