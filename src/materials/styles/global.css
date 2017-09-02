@@ -2,13 +2,40 @@
 	padding:0;
 	margin:0;
 	box-sizing:border-box;
+	background:transparent;
+	font-size:14px;
+	font-family:'微软雅黑'
+}
+*:focus {
+	outline: none;
+}
+input, button, textarea, select {
+	*font-size: 100%;
+	-webkit-appearance:none;
+}
+/**
+ * 使用CSS Transforms 或者 Animations时可能会有页面闪烁的Bug
+ * -webkit-backface-visibility: hidden;
+ */
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #999;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #999;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #999;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #999;
 }
 html,body{
 	width:100%;
 	height:100%;
-    background: #f3f3f5;
+	background: #f3f3f5;
 }
+
 #app{
-    width:100%;
-    height:100%;
+	width:100%;
+	height:100%;
 }

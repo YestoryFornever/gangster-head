@@ -1,12 +1,8 @@
 @import 'variable';
+@import 'mixin';
 
 .login-component{
-	margin:0 auto;
-	width: 40vh;
-	text-align:center;
-	.ant-form-inline .ant-form-item{
-		margin-right:0;
-	}
+	.overspread;
 	h3{
 		color: @primary-color;
 	}
@@ -27,7 +23,27 @@
 			height:100%;
 		}
 	} */
-	section.login-dialog{
-		margin:0 auto;
+}
+@loginDialogW:20em;
+@loginDialogH:20em;
+.login-dialog{
+	font-size:16px;
+	width:@loginDialogW;
+	height:@loginDialogH;
+	display:block;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-@loginDialogW/2;
+	margin-top:-@loginDialogH/2;
+	text-align:center;
+	input{
+		text-align:center;
+		border:none;
+		height:2em;
+		line-height:1.2;
+	}
+	input:focus{
+		border-bottom: 1px solid @primary-color;
 	}
 }
