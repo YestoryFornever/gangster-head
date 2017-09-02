@@ -9,27 +9,21 @@ const FormItem = Form.Item;
 const Login = ({ onLogin, authenticated }) => {
 	return (
 		<div className="login-component">
-			{/*<header>
-				<h3>login</h3>
-			</header>*/}
-			<form className="login-dialog">
+			<form className="login-dialog" onSubmit={e => {
+					e.preventDefault();
+					onLogin(true);
+				}}>
 				<input type="text" className="username" placeholder="aloha" />
 				<br/>
 				<input type="password" className="password" placeholder="······" />
+				<br/>
+				<Button htmlType="submit" type='primary' style={{display:'none'}} onClick={e => {
+					e.preventDefault();
+					onLogin(true);
+				}}>登录</Button>
 				{ authenticated && ( <span>asdf</span> ) }
 			</form>
-			<Form layout="inline" >
-				<FormItem>
-					<Input placeholder="Username" />
-				</FormItem>
-				<FormItem>
-					<Button type='primary' onClick={e => {
-						e.preventDefault();
-						onLogin(true);
-					}}>登录</Button>
-				</FormItem>
-				<DatePicker />
-			</Form>
+			{/*<DatePicker />*/}
 		</div>
 	)
 };
