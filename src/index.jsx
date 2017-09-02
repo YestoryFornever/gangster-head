@@ -17,7 +17,7 @@ import { Provider } from 'react-redux'
  * Router
  */
 import { history } from 'alias_utils/js/history';
-import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
+import { BrowserRouter, Route, Link, Switch, Redirect } from 'react-router-dom'
 import { ConnectedRouter as Router, routerMiddleware, push } from 'react-router-redux'
 /*
  * Components
@@ -61,15 +61,17 @@ render(
 						<li><Link to="/error">Error</Link></li>
 					</ul>
 					<hr /> */}
-					<Route exact path="/" render={(props) => <Home {...props}/> } />
-					<Route path="/login" component={Login} />
-					<Route path="/manager" render={(props) => {//此处必须把父级组件的属性传入子级组件
-							return store.getState().login.auth 
-								? ( <Manager {...props}/> ) 
-								: ( <Redirect to="/" /> )
-						}
-					} />
-					<Route component={Error} />
+					<Switch>
+						<Route exact path="/" render={(props) => <Home {...props}/> } />
+						<Route path="/login" component={Login} />
+						<Route path="/manager" render={(props) => {//此处必须把父级组件的属性传入子级组件
+								return store.getState().login.auth 
+									? ( <Manager {...props}/> ) 
+									: ( <Redirect to="/" /> )
+							}
+						} />
+						<Route component={Error} />
+					</Switch>
 				</div>
 			</Router>
 			{/* <DevTools /> */}
