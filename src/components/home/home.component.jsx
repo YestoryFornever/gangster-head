@@ -5,6 +5,8 @@ import { BrowserRouter, Route, Link } from 'react-router-dom'
 import { Button, Timeline } from 'antd'
 
 import Nav from './nav/nav.container'
+import Article from './article/article.container'
+
 const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 	return (
 		<div>
@@ -31,20 +33,12 @@ const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 			</Button>
 			<Nav match={match} />
 			<section className="content">
-				<Route path={`${match.url}/:topicId`} component={Topic}/>
+				<Route path={`${match.url}/article`} component={Article}/>
 				<Route exact path={match.url} render={()=>(
-					<Timeline>
-						<Timeline.Item>Create a services site 2015-09-01
-							<a href="#">asdf</a>
-						</Timeline.Item>
-						<Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
-						<Timeline.Item>Technical testing 2015-09-01</Timeline.Item>
-						<Timeline.Item>Network problems being solved 2015-09-01</Timeline.Item>
-					</Timeline>
+					<div>blank</div>
 				)}/>
 			</section>
 		</div>
 	)
 };
-const Topic = ({match})=>{return (<div><h3>{match.params.topicId}</h3></div>)};
 export default Home;
