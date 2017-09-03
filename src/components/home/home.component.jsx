@@ -2,7 +2,9 @@ import './home.less';
 import React, { Component, PropTypes } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
-import { Button, DatePicker } from 'antd';
+import { Button, Timeline } from 'antd';
+
+import Nav from './nav/nav.container'
 const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 	return (
 		<div>
@@ -27,28 +29,17 @@ const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 			<Button>
 				<Link to="/error">错误</Link>
 			</Button>
-			<h2>二级路由</h2>
-			<ul>
-				<li>
-					<Link to={`${match.url}/rendering`}>
-						Rendering with React
-					</Link>
-				</li>
-				<li>
-					<Link to={`${match.url}/components`}>
-						Components
-					</Link>
-				</li>
-				<li>
-					<Link to={`${match.url}/state`}>
-						state
-					</Link>
-				</li>
-			</ul>
+			<Nav match={match} />
 			<Route path={`${match.url}/:topicId`} component={Topic}/>
 			<Route exact path={match.url} render={()=>(
 				<h3>Please select a topic.</h3>
 			)}/>
+			<Timeline>
+				<Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
+				<Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
+				<Timeline.Item>Technical testing 2015-09-01</Timeline.Item>
+				<Timeline.Item>Network problems being solved 2015-09-01</Timeline.Item>
+			</Timeline>
 		</div>
 	)
 };
