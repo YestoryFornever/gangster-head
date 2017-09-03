@@ -62,7 +62,8 @@ render(
 					</ul>
 					<hr /> */}
 					<Switch>
-						<Route exact path="/" render={(props) => <Home {...props}/> } />
+						<Route exact path="/" render={() => <Redirect to="/home" /> } />
+						<Route path="/home" render={(props) => <Home {...props}/> } />
 						<Route path="/login" component={Login} />
 						<Route path="/manager" render={(props) => {//此处必须把父级组件的属性传入子级组件
 								return store.getState().login.auth 
