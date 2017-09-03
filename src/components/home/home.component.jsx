@@ -1,8 +1,8 @@
-import './home.less';
-import React, { Component, PropTypes } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import './home.less'
+import React, { Component, PropTypes } from 'react'
+import { BrowserRouter, Route, Link } from 'react-router-dom'
 
-import { Button, Timeline } from 'antd';
+import { Button, Timeline } from 'antd'
 
 import Nav from './nav/nav.container'
 const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
@@ -30,16 +30,19 @@ const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 				<Link to="/error">错误</Link>
 			</Button>
 			<Nav match={match} />
-			<Route path={`${match.url}/:topicId`} component={Topic}/>
-			<Route exact path={match.url} render={()=>(
-				<h3>Please select a topic.</h3>
-			)}/>
-			<Timeline>
-				<Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
-				<Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
-				<Timeline.Item>Technical testing 2015-09-01</Timeline.Item>
-				<Timeline.Item>Network problems being solved 2015-09-01</Timeline.Item>
-			</Timeline>
+			<section className="content">
+				<Route path={`${match.url}/:topicId`} component={Topic}/>
+				<Route exact path={match.url} render={()=>(
+					<Timeline>
+						<Timeline.Item>Create a services site 2015-09-01
+							<a href="#">asdf</a>
+						</Timeline.Item>
+						<Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
+						<Timeline.Item>Technical testing 2015-09-01</Timeline.Item>
+						<Timeline.Item>Network problems being solved 2015-09-01</Timeline.Item>
+					</Timeline>
+				)}/>
+			</section>
 		</div>
 	)
 };
