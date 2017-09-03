@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { setAuthenticate, test } from 'alias_utils/js/actions'
+import { setAuthenticate, home_test } from 'alias_utils/js/actions'
 import { history } from 'alias_utils/js/history'
 import Home from './home.component'
 const _s = (state) => {
@@ -18,7 +18,7 @@ const _d = (dispatch) => {
 			history.push('/');
 		},
 		test: (n)=>{
-			test({
+			home_test({
 				data:{"n":2},
 				success: (req) => {
 					console.log('suc');

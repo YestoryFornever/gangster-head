@@ -1,13 +1,14 @@
+export * from './article/article.actions'
 import { _json } from 'alias_utils/js/fetch'
 /*
  * action 类型
  */
-export const TEST = 'TEST';
+export const HOME_TEST = 'TEST';
 
 /*
  * action 创建函数
  */
-export const test = (opts) => (
+export const home_test = (opts) => (
     (dispatch) => {
         const { data, success, error } = opts;
         _json({
