@@ -123,6 +123,7 @@ module.exports = (opt) => {
 			new HtmlWebpackPlugin({
 				title: 'default-title',
 				template: 'src/index.html',
+				favicon: 'src/favicon.ico',
 				inject: 'body',
 				hash: true
 			}),
