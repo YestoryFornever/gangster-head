@@ -1,6 +1,6 @@
 import './home.less'
 import React, { Component, PropTypes } from 'react'
-import { BrowserRouter, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
 
 import { Button } from 'antd'
 
@@ -29,10 +29,10 @@ const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 			}>test</Button>
 			<Nav match={match} />
 			<section className="content">
-				<Route path={`${match.url}/article`} component={Article}/>
+				<Route path={`${match.url}/article`} component={Article} />
 				<Route exact path={match.url} render={()=>(
-					<div>blank</div>
-				)}/>
+					<Redirect to={`${match.url}/article`} />
+				)} />
 			</section>
 		</div>
 	)
