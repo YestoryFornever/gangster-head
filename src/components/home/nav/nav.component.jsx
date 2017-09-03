@@ -5,11 +5,10 @@ import { BrowserRouter, Route, Link } from 'react-router-dom'
 const Nav = ({ match, onLogin, onLogout, authenticated, test }) => {
 	return (
 		<nav className="navigation">
-			Home
 			<h2>二级路由</h2>
 			<ul>
 				<li>
-					<Link to={`${match.url}/home`}>
+					<Link to={`${match.url}`}>
 						主页
 					</Link>
 				</li>

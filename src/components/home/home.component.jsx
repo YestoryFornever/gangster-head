@@ -2,7 +2,7 @@ import './home.less'
 import React, { Component, PropTypes } from 'react'
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 
-import { Button, Timeline } from 'antd'
+import { Button } from 'antd'
 
 import Nav from './nav/nav.container'
 import Article from './article/article.container'
@@ -22,15 +22,11 @@ const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 			}
 			}>注销</Button>
 			{authenticated && (<span>asdf</span>)}
-			<br />
 			<Button onClick={e => {
 				e.preventDefault();
 				test(1);
 			}
 			}>test</Button>
-			<Button>
-				<Link to="/error">错误</Link>
-			</Button>
 			<Nav match={match} />
 			<section className="content">
 				<Route path={`${match.url}/article`} component={Article}/>
