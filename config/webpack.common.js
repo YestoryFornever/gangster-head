@@ -114,7 +114,7 @@ module.exports = (opt) => {
 					],
 				},
 				{
-					test: /\.(png|jpg|woff|woff2)$/,
+					test: /\.(ico|png|jpe?g|gif|svg|woff|woff2|ttf|wav|mp3)$/,
 					use: 'url-loader',
 				},
 			]
