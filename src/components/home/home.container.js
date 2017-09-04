@@ -3,9 +3,8 @@ import { setAuthenticate, home_test } from 'alias_utils/js/actions'
 import { history } from 'alias_utils/js/history'
 import Home from './home.component'
 const _s = (state) => {
-	// console.log(state);
 	return {
-		authenticated: state.login.auth
+		authenticated: state.loginReducer.login
 	}
 }
 const _d = (dispatch) => {

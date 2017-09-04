@@ -2,14 +2,19 @@ import './article-list.less'
 import React, { Component, PropTypes } from 'react'
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 
-import { Timeline } from 'antd'
+import { Button, Timeline } from 'antd'
 
-const ArticleList = ({match}) => {
+const ArticleList = ({ match, articles, getArticleList}) => {
 	return (
 		<div>
+            <Button onClick={e => {
+                e.preventDefault();
+                getArticleList();
+            }
+            }>get</Button>
             <Timeline>
-                {[1, 2, 3, 4].map((item, index) => 
-                    <Timeline.Item key={index}>{item}</Timeline.Item>)
+                {articles.map((item, index) => 
+                    <Timeline.Item key={index}>{item.title}</Timeline.Item>)
                 }
             </Timeline>
 		</div>

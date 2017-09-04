@@ -1,16 +1,19 @@
 import { connect } from 'react-redux'
-import { setAuthenticate, article_list } from 'alias_utils/js/actions'
+import { setAuthenticate, articleList, updateArticles } from 'alias_utils/js/actions'
 import ArticleList from './article-list.component'
 const _s = (state) => {
-	return {}
+	return {
+		articles: state.homeReducer.articleReducer.articles
+	}
 }
 const _d = (dispatch) => {
 	return {
-		article_list: (n)=>{
-			article_list({
+		getArticleList: (n)=>{
+			articleList({
 				data:{},
 				success: (req) => {
-					console.log('suc');
+					console.log(req);
+					dispatch(updateArticles(req))
 				}, error: () => {
 					console.log('err');
 				}

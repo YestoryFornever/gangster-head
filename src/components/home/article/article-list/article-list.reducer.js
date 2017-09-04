@@ -1,5 +1,13 @@
-export default function article_list(state = "SHOW_ALL", action){
+import { UPDATE_ARTICLE_LIST } from 'alias_utils/js/actions'
+
+export default function articles(state = [], action){
     switch (action.type) {
+		case UPDATE_ARTICLE_LIST:
+			return [
+				...state,
+				...action.articles
+			]
+			break;
 		default:
 			return state
 	}

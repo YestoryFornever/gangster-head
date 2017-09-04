@@ -1,5 +1,7 @@
-import { AUTHENTICATED } from 'alias_utils/js/actions';
-export default function login(state = false, action){
+import { combineReducers } from 'redux'
+import { AUTHENTICATED } from 'alias_utils/js/actions'
+
+const login = (state = false, action) => {
 	// console.log(action);
 	switch (action.type) {
 		case AUTHENTICATED:
@@ -8,3 +10,9 @@ export default function login(state = false, action){
 			return state;
 	}
 }
+
+const loginReducer = combineReducers({
+	login,
+})
+
+export default loginReducer;
