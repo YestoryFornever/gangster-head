@@ -8,8 +8,8 @@ const ArticleList = ({match}) => {
 	return (
 		<div>
             <Timeline>
-                {[1, 2, 3, 4].map((item) => 
-                    <Timeline.Item>{item}</Timeline.Item>)
+                {[1, 2, 3, 4].map((item, index) => 
+                    <Timeline.Item key={index}>{item}</Timeline.Item>)
                 }
             </Timeline>
 		</div>
