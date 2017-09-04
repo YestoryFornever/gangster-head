@@ -17,17 +17,17 @@ const Home = ({match}) => {
 			<ul>
 				<li>
 					<Link to={`${match.url}/article-list`}>
-						Rendering with React
+						list
 					</Link>
 				</li>
 				<li>
 					<Link to={`${match.url}/article-hit`}>
-						Components
+						hit
 					</Link>
 				</li>
 				<li>
 					<Link to={`${match.url}/article-run`}>
-						state
+						run
 					</Link>
 				</li>
 			</ul>
