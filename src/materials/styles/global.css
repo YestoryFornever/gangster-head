@@ -3,8 +3,7 @@
 	margin:0;
 	box-sizing:border-box;
 	background:transparent;
-	font-size:14px;
-	font-family:'微软雅黑'
+	font-family:'Sans-serif', Arial, '微软雅黑', Serif, Verdana, Georgia, 'Times New Roman';
 }
 *:focus {
 	outline: none;
