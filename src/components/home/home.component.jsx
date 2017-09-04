@@ -9,11 +9,11 @@ import Article from './article/article.container'
 
 const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 	return (
-		<div>
-			<aside className="home-asde">
+		<div className="home-component">
+			<aside className="home-aside">
 				<header>
 					Home
-				<Button type='primary' onClick={e => {
+					<Button type='primary' onClick={e => {
 						e.preventDefault();
 						onLogin(true);
 					}
@@ -32,7 +32,7 @@ const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 				</header>
 				<Nav match={match} />
 			</aside>
-			<section className="home-component">
+			<section className="home-section">
 				<Route path={`${match.url}/article`} component={Article} />
 				<Route exact path={match.url} render={()=>(
 					<Redirect to={`${match.url}/article`} />
