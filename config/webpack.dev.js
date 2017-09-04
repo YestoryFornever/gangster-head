@@ -39,7 +39,7 @@ module.exports = (opt) => {
 				host: METADATA.host,
 				historyApiFallback: true,
 				stats: 'minimal',
-				// hot: true //--hot[package.json]
+				hot: true //--hot[package.json]
 			},
 			plugins: [
 				new webpack.HotModuleReplacementPlugin()

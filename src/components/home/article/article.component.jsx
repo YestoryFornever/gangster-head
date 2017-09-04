@@ -10,14 +10,31 @@ import ArticleRun from './article-run/article-run.container'
 const Home = ({match}) => {
 	return (
 		<div>
-			<button onClick={e=>{
+			{/* <button type="button" onClick={e=>{
 					history.push('./article-hit')
 				}
-			}>aaa</button>
+			}>article-hit</button> */}
+			<ul>
+				<li>
+					<Link to={`${match.url}/article-list`}>
+						Rendering with React
+					</Link>
+				</li>
+				<li>
+					<Link to={`${match.url}/article-hit`}>
+						Components
+					</Link>
+				</li>
+				<li>
+					<Link to={`${match.url}/article-run`}>
+						state
+					</Link>
+				</li>
+			</ul>
 			<Route exact path={match.url} render={()=>(
 				<Redirect to={`${match.url}/article-list`} />
 			)} />
-            	<Route path={`${match.url}/article-list`} component={ArticleList} />
+            <Route path={`${match.url}/article-list`} component={ArticleList} />
 			<Route path={`${match.url}/article-hit`} component={ArticleHit} />
 			<Route path={`${match.url}/article-run`} component={ArticleRun} />
 		</div>

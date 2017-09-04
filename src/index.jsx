@@ -16,7 +16,7 @@ import { Provider } from 'react-redux'
 /*
  * Router
  */
-import { history } from 'alias_utils/js/history';
+import { history } from 'alias_utils/js/history'
 import { BrowserRouter, Route, Link, Switch, Redirect } from 'react-router-dom'
 import { ConnectedRouter as Router, routerMiddleware, push } from 'react-router-redux'
 /*
