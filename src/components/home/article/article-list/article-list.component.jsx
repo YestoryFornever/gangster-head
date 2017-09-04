@@ -8,12 +8,9 @@ const ArticleList = ({match}) => {
 	return (
 		<div>
             <Timeline>
-                <Timeline.Item>Create a services site 2015-09-01
-                    <a href="#">test a</a>
-                </Timeline.Item>
-                <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
-                <Timeline.Item>Technical testing 2015-09-01</Timeline.Item>
-                <Timeline.Item>Network problems being solved 2015-09-01</Timeline.Item>
+                {[1, 2, 3, 4].map((item) => 
+                    <Timeline.Item>{item}</Timeline.Item>)
+                }
             </Timeline>
 		</div>
 	)
