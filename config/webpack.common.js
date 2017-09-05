@@ -81,7 +81,7 @@ module.exports = (opt) => {
 							}
 						}
 					],
-					include: helpers.root('src')//白名单
+					//include: helpers.root('src')//白名单
 				},
 				{
 					test: /\.less$/,
