@@ -1,3 +1,4 @@
+import 'alias_utils/styles/recovery.less'
 import './home.less'
 import React, { Component, PropTypes } from 'react'
 import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
