@@ -25,7 +25,19 @@ import { ConnectedRouter as Router, routerMiddleware, push } from 'react-router-
 import Login from './components/login/login.container'
 import Home from './components/home/home.container'
 import Manager from './components/manager/manager.container'
-import Error from './components/error/error.container'
+// import Error from './components/error/error.container'
+/**
+ * 异步加载组件
+ */
+import asyncComponent from 'alias_utils/js/asyncComponent'
+const asyncLogin = asyncComponent(() =>
+	System.import('./components/error/error.container.js')
+		.then(module => module.default)
+		.catch((err) => { return 404 }))
+const asyncError = asyncComponent(() =>
+	System.import('./components/error/error.container.js')
+		.then(module => module.default)
+		.catch((err) => { return 404 }))
 /* 
  * DevTools
  */
@@ -64,14 +76,14 @@ render(
 					<Switch>
 						<Route exact path="/" render={() => <Redirect to="/error" /> } />
 						<Route path="/home" render={(props) => <Home {...props}/> } />
-						<Route path="/login" component={Login} />
+						<Route path="/login" component={asyncLogin} />
 						<Route path="/manager" render={(props) => {//此处必须把父级组件的属性传入子级组件
 								return store.getState().login.auth 
 									? ( <Manager {...props}/> ) 
 									: ( <Redirect to="/" /> )
 							}
 						} />
-						<Route component={Error} />
+						<Route component={asyncError} />
 					</Switch>
 				</div>
 			</Router>
