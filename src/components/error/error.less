@@ -1,0 +1,41 @@
+@import 'mixin';
+.f-container{
+    .overspread;
+    display:flex; /* inline-flex(将超出浏览器边界)/flex */
+    flex-flow:row wrap;/* flex-direction: column; flex-wrap:wrap; */
+    justify-content: flex-start;
+    align-items: stretch;/* 相对当前主轴的位置 */
+    align-content: flex-end;/* 相对于总主轴的位置，当且仅当多行（wrap）时生效; 属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用 */
+}
+@fffW:10rem;
+.fff{
+    width:@fffW;
+    text-align:center;
+}
+#f1{
+    background: #ddebf3;
+    width:12rem;
+}
+#f2{
+    background: #5f5c63;
+    height:13rem;
+    width:20rem;
+    order:-1;
+    flex:auto;/* auto=01auto none=00auto */
+}
+#f3{
+    background: #c69a7d;
+    width:17rem;
+    height:18rem;
+    flex-grow:1;/* 如果有剩余空间，该部分将增大 */
+    flex-shrink:1;/* 如果空间不足，该部分将缩小 */
+    flex-basis:auto;/* 定义计算主轴是否有多余空间的主轴长度，可以设为跟width和height相同的值 */
+    align-self:stretch;
+}
+#f4{
+    background: #c4bfbb;
+}
+#f5{
+    background: #a09393;
+    width:30rem;
+}
