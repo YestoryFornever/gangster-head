@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { AUTHENTICATED } from 'alias_utils/js/actions'
 
-const login = (state = false, action) => {
+const auth = (state = false, action) => {
 	// console.log(action);
 	switch (action.type) {
 		case AUTHENTICATED:
@@ -12,7 +12,7 @@ const login = (state = false, action) => {
 }
 
 const loginReducer = combineReducers({
-	login,
+	auth,
 })
 
 export default loginReducer;

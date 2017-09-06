@@ -4,8 +4,9 @@ import { history } from 'alias_utils/js/history'
 import Manager from './manager.component'
 const _s = (state) => {
 	// console.log(state);
+	debugger;
 	return {
-		authenticated: state.loginReducer.login
+		authenticated: state.loginReducer.auth
 	}
 }
 const _d = (dispatch) => {
