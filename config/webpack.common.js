@@ -29,7 +29,8 @@ if (pkg.theme && typeof (pkg.theme) === 'string') {
 module.exports = (opt) => {
 	return {
 		entry: {
-			main: './src/index.jsx'
+			main: './src/index.jsx',
+			vendor: ['react', 'react-dom', 'react-redux','react-router-dom']
 		},//入口文件
 		resolve: {
 			extensions: ['.js', '.jsx'],

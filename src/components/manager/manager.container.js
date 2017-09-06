@@ -4,7 +4,6 @@ import { history } from 'alias_utils/js/history'
 import Manager from './manager.component'
 const _s = (state) => {
 	// console.log(state);
-	debugger;
 	return {
 		authenticated: state.loginReducer.auth
 	}

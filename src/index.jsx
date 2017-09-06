@@ -22,7 +22,7 @@ import { ConnectedRouter as Router, routerMiddleware, push } from 'react-router-
 /*
  * Components
  */
-import Login from './components/login/login.container'
+// import Login from './components/login/login.container'
 import Home from './components/home/home.container'
 import Manager from './components/manager/manager.container'
 // import Error from './components/error/error.container'
@@ -32,6 +32,10 @@ import Manager from './components/manager/manager.container'
 import asyncComponent from 'alias_utils/js/asyncComponent'
 const asyncLogin = asyncComponent(() =>
 	System.import('./components/login/login.container.js')
+		.then(module => module.default)
+		.catch((err) => { return 404 }))
+const asyncHome = asyncComponent(() =>
+	System.import('./components/home/home.container.js')
 		.then(module => module.default)
 		.catch((err) => { return 404 }))
 const asyncError = asyncComponent(() =>
