@@ -126,6 +126,10 @@ module.exports = (opt) => {
 			/* new CleanWebpackPlugin(['public'],{
 				root: helpers.root('../gangster-butt')
 			}), */
+			new webpack.DllReferencePlugin({
+				manifest: helpers.root('dlls/manifest.json'),
+				extensions:['js','jsx']
+			}),
 			new webpack.optimize.CommonsChunkPlugin({
 				name: "vendor",
 				minChunks: function (module) {
