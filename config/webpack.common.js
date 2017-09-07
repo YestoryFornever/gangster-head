@@ -5,6 +5,7 @@ const helpers = require('./helpers');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ProvidePlugin = webpack.ProvidePlugin;
 
 const node_modules_path = __dirname + '/node_modules/';
@@ -30,12 +31,6 @@ module.exports = (opt) => {
 	return {
 		entry: {
 			main: './src/index.jsx',
-			vendor: [
-				'react',
-				'react-dom', 
-				'react-redux', 
-				'react-router-dom'
-			],
 		},//入口文件
 		resolve: {
 			extensions: ['.js', '.jsx'],
@@ -47,6 +42,8 @@ module.exports = (opt) => {
 		output: {
 			path: helpers.root('../gangster-butt/public'),//输出文件目录（__dirname指的是当前目录）
 			// publicPath: 'http://127.0.0.1:9999/',
+			filename: '[name].[hash].bundle.js',//打包后文件名对应entry中的key名:e.g. bundle
+			chunkFilename: '[name].[chunkhash].chunk.js'
 		},
 		module: {
 			rules: [
@@ -126,10 +123,18 @@ module.exports = (opt) => {
 			]
 		},
 		plugins: [
+			/* new CleanWebpackPlugin(['public'],{
+				root: helpers.root('../gangster-butt')
+			}), */
 			new webpack.optimize.CommonsChunkPlugin({
 				name: "vendor",
-				minChunks: Infinity,
-				children: true
+				minChunks: function (module) {
+					return module.context && module.context.indexOf("node_modules") !== -1;
+				}
+			}),
+			new webpack.optimize.CommonsChunkPlugin({
+				name: "runtime",
+				minChunks: Infinity
 			}),
 			new HtmlWebpackPlugin({
 				title: 'default-title',

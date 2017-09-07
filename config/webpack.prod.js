@@ -34,7 +34,7 @@ module.exports = (opt) => {
 		commonConfig(),
 		{
 			output: {
-				filename: '[name].[chunkhash].bundle.js',
+				filename: '[name].[hash].bundle.js',
 				chunkFilename: '[name].[chunkhash].chunk.js'
 			},
 			module: {
