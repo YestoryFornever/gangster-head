@@ -123,9 +123,9 @@ module.exports = (opt) => {
 			]
 		},
 		plugins: [
-			/* new CleanWebpackPlugin(['public'],{
+			new CleanWebpackPlugin(['public'],{// 清理旧包
 				root: helpers.root('../gangster-butt')
-			}), */
+			}),
 			new webpack.DllReferencePlugin({
 				manifest: helpers.root('dlls/manifest.json'),
 				extensions:['js','jsx']
