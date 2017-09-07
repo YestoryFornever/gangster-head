@@ -30,7 +30,12 @@ module.exports = (opt) => {
 	return {
 		entry: {
 			main: './src/index.jsx',
-			vendor: ['react', 'react-dom', 'react-redux','react-router-dom']
+			vendor: [
+				'react',
+				'react-dom', 
+				'react-redux', 
+				'react-router-dom'
+			],
 		},//入口文件
 		resolve: {
 			extensions: ['.js', '.jsx'],
@@ -121,6 +126,11 @@ module.exports = (opt) => {
 			]
 		},
 		plugins: [
+			new webpack.optimize.CommonsChunkPlugin({
+				name: "vendor",
+				minChunks: Infinity,
+				children: true
+			}),
 			new HtmlWebpackPlugin({
 				title: 'default-title',
 				template: 'src/index.html',
