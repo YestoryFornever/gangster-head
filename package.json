@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/YestoryFornever/webpack-react-starter#readme",
   "devDependencies": {
+    "add-asset-html-webpack-plugin": "^2.1.1",
     "babel-core": "^6.24.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-import": "^1.4.0",

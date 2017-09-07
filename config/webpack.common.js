@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 const ProvidePlugin = webpack.ProvidePlugin;
 
 const node_modules_path = __dirname + '/node_modules/';
@@ -146,6 +147,10 @@ module.exports = (opt) => {
 				favicon: 'src/favicon.ico',
 				inject: 'body',
 				hash: true
+			}),
+			new AddAssetHtmlPlugin({
+				filepath: require.resolve(helpers.root('dlls/dll.dlls.js')),
+				includeSourcemap: false
 			}),
 			new CopyWebpackPlugin([
 				{ from: 'src/materials', to: 'materials' },
