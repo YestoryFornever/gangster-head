@@ -4,9 +4,8 @@ const path = require('path');
 const helpers = require('./helpers');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const ProvidePlugin = webpack.ProvidePlugin;
 
 const node_modules_path = __dirname + '/node_modules/';
@@ -124,9 +123,6 @@ module.exports = (opt) => {
 			]
 		},
 		plugins: [
-			new CleanWebpackPlugin(['public'],{// 清理旧包
-				root: helpers.root('../gangster-butt')
-			}),
 			new webpack.DllReferencePlugin({
 				manifest: helpers.root('dlls/manifest.json'),
 				extensions:['js','jsx']
@@ -149,7 +145,7 @@ module.exports = (opt) => {
 				hash: true
 			}),
 			new AddAssetHtmlPlugin({
-				filepath: require.resolve(helpers.root('dlls/dll.dlls.js')),
+				filepath: require.resolve(helpers.root('dlls/stuff.dll.js')),
 				includeSourcemap: false
 			}),
 			new CopyWebpackPlugin([

@@ -10,7 +10,7 @@ module.exports = {
 		}
 	},
 	entry: {
-		dlls: [
+		stuff: [
 			"antd",
 			"history",
 			"jquery",
@@ -27,7 +27,7 @@ module.exports = {
 	},//入口文件
 	output: {
 		path: helpers.root('dlls'),
-		filename: "dll.[name].js",
+		filename: "[name].dll.js",
 		library: "[name]_[hash]"
 	},
 	plugins: [
