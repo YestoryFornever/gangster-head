@@ -25,15 +25,16 @@ const ArticleRun = ({ match, code, sync}) => {
 	return (
 		<div>
 			<div id="output" className='result-pane'>
-				<CodeBlock literal="function aaa(){}" language="js" />
+				<CodeBlock literal="function aaa(){}" language="javascript" />
 				<ReactMarkdown 
-				source={code} 
+					source={code} 
 					className="result"
-				renderers={
-					Object.assign({}, ReactMarkdown.renderers, {
-						CodeBlock: CodeBlock
-					})
-				} />
+					renderers={
+						Object.assign({}, ReactMarkdown.renderers, {
+							CodeBlock: CodeBlock
+						})
+					} 
+				/>
 			</div>
 			<div id="input">
 				<CodeMirror value={code} onChange={sync} options={options} />
