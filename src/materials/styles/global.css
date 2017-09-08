@@ -38,3 +38,72 @@ html,body{
 	width:100%;
 	height:100%;
 }
+
+/*  */
+.page-header {
+    color: #fff;
+    background: #191818;
+    margin: 0;
+    padding: 10px 20px;
+}
+
+.result-pane > div {
+    padding: 10px;
+    padding-left: 20px;
+    color: #444;
+    font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.5em;
+}
+
+.editor textarea {
+    padding: 20px;
+}
+
+.editor-pane textarea {
+    min-height: 500px;
+}
+
+.markdown-controls {
+    position: relative;
+    z-index: 5;
+    text-align: right;
+    color: #fff;
+    float: right;
+}
+
+.markdown-controls form {
+    background-color: rgba(39, 40, 34, 0.5);
+    margin-right: 20px;
+}
+
+.markdown-controls legend {
+    border-bottom: 0;
+    color: #fff;
+    font-size: 1.25em;
+    margin: 0;
+    padding: 10px 0 0 0;
+}
+
+.CodeMirror {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+
+    font-size: 16px;
+}
+
+pre {
+    border: 1px solid #ccc;
+}
+
+blockquote {
+    color: #666;
+    margin: 0;
+    padding-left: 3em;
+    border-left: 0.5em #eee solid;
+}

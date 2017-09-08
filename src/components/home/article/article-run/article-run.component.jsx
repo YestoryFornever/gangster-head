@@ -11,6 +11,8 @@ import 'codemirror/theme/monokai.css'
 
 import {} from 'antd'
 
+import CodeBlock from './code-block'
+
 let updateCode = function(){
 	output = input;
 };
@@ -22,8 +24,16 @@ let options = {
 const ArticleRun = ({ match, code, sync}) => {
 	return (
 		<div>
-            <div id="output">
-				<ReactMarkdown source={code} />
+			<div id="output" className='result-pane'>
+				<CodeBlock literal="function aaa(){}" language="js" />
+				<ReactMarkdown 
+				source={code} 
+					className="result"
+				renderers={
+					Object.assign({}, ReactMarkdown.renderers, {
+						CodeBlock: CodeBlock
+					})
+				} />
 			</div>
 			<div id="input">
 				<CodeMirror value={code} onChange={sync} options={options} />
