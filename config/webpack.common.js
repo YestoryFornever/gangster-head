@@ -36,6 +36,7 @@ module.exports = (opt) => {
 			extensions: ['.js', '.jsx'],
 			alias:{
 				alias_components:helpers.root('src/components'),
+				alias_materials:helpers.root('src/materials'),
 				alias_utils:helpers.root('src/utils')
 			}
 		},
