@@ -3,26 +3,24 @@
 
 .login-component{
 	.overspread;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
 }
-@loginDialogW:20em;
-@loginDialogH:20em;
+@loginDialogW:12rem;
+@loginDialogH:16rem;
 .login-dialog{
-	font-size:16px;
+	font-size:1.3rem;
 	width:@loginDialogW;
 	height:@loginDialogH;
-	display:block;
-	position:absolute;
-	left:50%;
-	top:50%;
-	margin-left:-@loginDialogW/2;
-	margin-top:-@loginDialogH/2;
-	text-align:center;
 	input{
-		text-align:center;
-		border:none;
+		width: 100%;
+		text-align: center;
+		border: none;
 		border-bottom: 1px solid transparent;
-		height:2em;
-		line-height:1.2;
+		height: 2.4rem;
+		line-height: 1.2;
 	}
 	input:focus{
 		border-bottom: 1px solid @primary-color;
