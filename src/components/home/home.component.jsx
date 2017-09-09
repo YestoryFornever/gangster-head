@@ -37,9 +37,9 @@ const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 			</aside> */}
 			<section className="home-section">
 				<Route path={`${match.url}/article`} component={Article} />
-				<Route exact path={match.url} render={()=>(
+				{/* <Route exact path={match.url} render={()=>(
 					<Redirect to={`${match.url}/article`} />
-				)} />
+				)} /> */}
 			</section>
 		</div>
 	)

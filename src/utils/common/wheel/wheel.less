@@ -1,0 +1,89 @@
+.wheel-component{
+    /* @keyframes spin {
+        to{ transform: rotate(1turn); }
+    }
+    .path{
+        width:300px;
+        height:300px;
+        border-radius: 150px;
+        background:#264;
+    }
+    .avatar{
+        animation: spin 6s infinite linear;
+        transform-origin: 50% 150px;
+        img{
+            width:6rem;
+            border-radius: 3rem;
+            height:6rem;
+            animation: inherit;
+            animation-direction: reverse;
+        }
+    } */
+    /* @keyframes spin {
+        from { transform: translate(50%, 60px) rotate(0turn) translate(-50%,-60px)}
+        to{ transform: translate(50%, 60px) rotate(1turn) translate(-50%,-60px) }
+    }
+    @keyframes spin-reverse {
+        from { transform: translate(50%, 50%) rotate(1turn) translate(-50%,-50%)}
+        to{ transform: translate(50%, 50%) rotate(0turn) translate(-50%,-50%) }
+    }
+    .path{
+        width:300px;
+        height:300px;
+        border-radius: 150px;
+        background:#264;
+    }
+    .avatar{
+        animation: spin 6s infinite linear;
+        transform-origin: 50% 150px;
+        img{
+            width:6rem;
+            border-radius: 3rem;
+            height:6rem;
+            animation: inherit;
+            animation-name: spin-reverse;
+        }
+    } */
+    @keyframes spin {
+        from { 
+            transform: 
+                translate(120px, 120px) 
+                rotate(0turn) 
+                translate(-120px,-120px)
+                translate(50%, 50%) 
+                rotate(1turn) 
+                translate(-50%,-50%)
+        }
+        to{ 
+            transform: 
+                translate(120px, 120px) 
+                rotate(1turn) 
+                translate(-120px,-120px)
+                translate(50%, 50%) 
+                rotate(0turn) 
+                translate(-50%,-50%) 
+        }
+    }
+    .path{
+        position: relative;
+        top:200px;
+        left:200px;
+        width:240px;
+        height:240px;
+        border-radius: 120px;
+        background:#264;
+    }
+    .avatar{
+        width:30px;
+        height:30px;
+        animation: spin 10s linear infinite;
+        img{
+            width:100%;
+            height:100%;
+            border-radius: 15px;
+        }
+    }
+    .avatar.on-pause{
+        animation-play-state: paused;
+    }
+}

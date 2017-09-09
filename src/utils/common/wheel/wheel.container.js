@@ -1,10 +1,19 @@
 import { connect } from 'react-redux'
-import { setAuthenticate, test } from 'alias_utils/js/actions'
+import { WHEELING_STATE, setWheelingState } from 'alias_utils/js/actions'
 import Wheel from './wheel.component'
 const _s = (state) => {
-	return {}
+	return {
+		wheeling: state.commonReducer.wheelReducer.wheeling
+	}
 }
 const _d = (dispatch) => {
-	return {}
+	return {
+		wheelingPause:()=>{
+			dispatch(setWheelingState(WHEELING_STATE.PAUSE));
+		},
+		wheelingRun:()=>{
+			dispatch(setWheelingState(WHEELING_STATE.RUN));
+		}
+	}
 }
 export default connect(_s, _d)(Wheel);
