@@ -4,7 +4,6 @@ export default function articles(state = [], action){
     switch (action.type) {
 		case UPDATE_ARTICLE_LIST:
 			return [
-				...state,
 				...action.articles
 			]
 			break;

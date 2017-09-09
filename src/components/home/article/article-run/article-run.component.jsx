@@ -23,7 +23,7 @@ let options = {
 };
 const ArticleRun = ({ match, code, sync}) => {
 	return (
-		<div>
+		<div className="article-run-component">
 			<div id="output" className='result-pane'>
 				<CodeBlock literal="function aaa(){}" language="javascript" />
 				<ReactMarkdown 

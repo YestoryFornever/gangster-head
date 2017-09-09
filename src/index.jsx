@@ -66,6 +66,12 @@ let store = createStore(
 		DevTools.instrument()
 	)
 );
+
+/**
+ * audio
+ */
+import audio_ding from 'alias_materials/videoes/ding.mp3'
+
 render(
 	<Provider store={store}>
 		<div className="Provider">
@@ -92,6 +98,7 @@ render(
 				</div>
 			</Router>
 			{/* <DevTools /> */}
+			<audio id="audio_ding" src={audio_ding} ></audio>
 		</div>
 	</Provider>,
 	document.getElementById('app')

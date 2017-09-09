@@ -5,16 +5,15 @@ import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
 
 import { Button } from 'antd'
 
+import Wheel from 'alias_utils/common/wheel/wheel.container';
 import Nav from './nav/nav.container'
 import Article from './article/article.container'
-
-import audio from 'alias_materials/videoes/ding.mp3'
 
 const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 	return (
 		<div className="home-component">
-			<audio id="audio" src={audio} ></audio>
-			<aside className="home-aside">
+			<Wheel />
+			{/* <aside className="home-aside">
 				<header>
 					Home
 					<Button type='primary' onClick={e => {
@@ -30,12 +29,12 @@ const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 					{authenticated && (<span>asdf</span>)}
 					<Button onClick={e => {
 						e.preventDefault();
-						document.getElementById('audio').play();
+						document.getElementById('audio_ding').play();
 					}
 					}>test</Button>
 				</header>
 				<Nav match={match} />
-			</aside>
+			</aside> */}
 			<section className="home-section">
 				<Route path={`${match.url}/article`} component={Article} />
 				<Route exact path={match.url} render={()=>(
