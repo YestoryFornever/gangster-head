@@ -12,7 +12,6 @@ import Article from './article/article.container'
 const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 	return (
 		<div className="home-component">
-			<Wheel />
 			{/* <aside className="home-aside">
 				<header>
 					Home
@@ -41,6 +40,7 @@ const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 					<Redirect to={`${match.url}/article`} />
 				)} /> */}
 			</section>
+			<Wheel />
 		</div>
 	)
 };
