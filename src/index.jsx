@@ -105,10 +105,12 @@ render(
 );
 
 /**
- * button audio
+ * error页面
+ * 过场动画
+ * @button audio
  * 路由缓存
- * 富文本编辑器
- * markdown
+ * @富文本编辑器
+ * @markdown
  * 
  * favicon 404
  * redux-gen - 生成器

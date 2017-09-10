@@ -12,10 +12,16 @@ const Wheel = ({ match, wheeling, wheelingPause, wheelingRun, onWheel, deg }) =>
 			onWheel={e=>{
 				e.preventDefault();
 				e.stopPropagation();
-				onWheel(e.deltaY>0)
+				if(e.deltaY<0){
+					wheelingPause();
+				}else{
+					wheelingRun();
+				}
+				onWheel(e.deltaY>0);
 			}
 		}>
 			<div className="path" >
+				<div id="yuan"></div>
 				<div className={"avatar "+(wheeling==="RUN"?"":"on-pause")} 
 				style={{
 					transform:'translate(95px, 95px) rotate('+deg+') translate(-95px,-95px)'
