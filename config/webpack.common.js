@@ -95,6 +95,9 @@ module.exports = (opt) => {
 							loader:'css-loader',
 							options: {
 								modules:false,
+								/* alias: {// 未成功
+									alias_materials:helpers.root('src/materials')
+								} */
 							}
 						},
 						{

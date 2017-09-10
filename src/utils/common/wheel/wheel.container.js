@@ -6,7 +6,7 @@ const _s = (state) => {
 		// 控制轮盘转动状态
 		wheeling: state.commonReducer.wheelReducer.wheelStatus,
 		// 轮盘旋转角度%120[没圈转动次数]*3[每次转动角度] +45保证了出场角度且在一个直角内可显示三项
-		deg: (state.commonReducer.wheelReducer.wheelDeg%6*60+45)+"deg"
+		deg: (state.commonReducer.wheelReducer.wheelDeg%6*60+45)
 	}
 }
 const _d = (dispatch) => {

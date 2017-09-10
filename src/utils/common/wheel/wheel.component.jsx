@@ -12,21 +12,17 @@ const Wheel = ({ match, wheeling, deg, wheelingPause, wheelingRun, setWheelDeg }
 			onWheel={e=>{
 				e.preventDefault();
 				e.stopPropagation();
-				if(e.deltaY<0){
-					wheelingPause();
-				}else{
-					wheelingRun();
-				}
 				setWheelDeg(e.deltaY>0);
+				document.getElementById('audio_diu').play();
 			}
 		}>
 			<div className="path" >
 				<div id="yuan"></div>
 				<div className={"avatar "+(wheeling===true?"":"on-pause")} 
 				style={{
-					transform:`rotate(${deg}) 
+					transform:`rotate(${deg+"deg"}) 
 						translateY(-12rem) translateY(50%) 
-						rotate(-${deg})`
+						rotate(${(0-deg)+"deg"})`
 				}}
 				onMouseEnter={(e)=>{
 					wheelingPause();

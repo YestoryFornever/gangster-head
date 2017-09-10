@@ -1,7 +1,6 @@
 .wheel-component{
     position: absolute;
-    bottom:-6.4rem;
-    left:-6.4rem;
+    bottom:0;
     overflow:hidden;
     @keyframes spin {
         from { 
@@ -18,6 +17,9 @@
         }
     }
     .path{
+        position: relative;
+        bottom:-6.4rem;
+        left:-6.4rem;
         width:24rem;
         height:24rem;
         border-radius: 12rem;
@@ -28,7 +30,8 @@
         height:4rem;
         line-height:4rem;
         border-radius: 2rem;
-        background:#6FD4A5;
+        background-image:url(/materials/images/anarchy.jpg);
+        background-size:100%;
         position: absolute;
         top:50%;
         left:50%;
