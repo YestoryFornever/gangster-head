@@ -1,56 +1,53 @@
 .wheel-component{
     position: absolute;
-    bottom:0;
+    bottom:-6.4rem;
+    left:-6.4rem;
     overflow:hidden;
     @keyframes spin {
         from { 
             transform: 
-                translate(120px, 120px) 
                 rotate(0turn) 
-                translate(-120px,-120px)
-                translate(50%, 50%) 
-                rotate(1turn) 
-                translate(-50%,-50%)
+                translateY(-12rem) translateY(50%) 
+                rotate(1turn)
         }
         to{ 
             transform: 
-                translate(120px, 120px) 
                 rotate(1turn) 
-                translate(-120px,-120px)
-                translate(50%, 50%) 
-                rotate(0turn) 
-                translate(-50%,-50%) 
+                translateY(-12rem) translateY(50%) 
+                rotate(0turn)
         }
     }
     .path{
-        position: relative;
-        top:80px;
-        right:80px;
-        width:240px;
-        height:240px;
-        border-radius: 120px;
+        width:24rem;
+        height:24rem;
+        border-radius: 12rem;
         // background:#D6B788;
     }
     div#yuan{
-        width:40px;
-        height:40px;
-        line-height:40px;
-        border-radius: 20px;
-        background:red;
+        width:4rem;
+        height:4rem;
+        line-height:4rem;
+        border-radius: 2rem;
+        background:#6FD4A5;
         position: absolute;
         top:50%;
         left:50%;
-        margin-top:-20px;
-        margin-left:-20px;
+        margin-top:-2rem;
+        margin-left:-2rem;
     }
     .avatar{
-        width:50px;
-        height:50px;
-        // animation: spin 60s linear infinite;
+        width:4rem;
+        height:4rem;
+        position: absolute;
+        top:50%;
+        left:50%;
+        margin-top:-2rem;
+        margin-left:-2rem;
+        // animation: spin 6s linear infinite;
         img{
             width:100%;
             height:100%;
-            border-radius: 25px;
+            border-radius: 2rem;
         }
     }
     .avatar.on-pause{

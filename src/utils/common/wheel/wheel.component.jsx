@@ -24,7 +24,9 @@ const Wheel = ({ match, wheeling, deg, wheelingPause, wheelingRun, setWheelDeg }
 				<div id="yuan"></div>
 				<div className={"avatar "+(wheeling===true?"":"on-pause")} 
 				style={{
-					transform:'translate(95px, 95px) rotate('+deg+') translate(-95px,-95px)'
+					transform:`rotate(${deg}) 
+						translateY(-12rem) translateY(50%) 
+						rotate(-${deg})`
 				}}
 				onMouseEnter={(e)=>{
 					wheelingPause();
