@@ -100,7 +100,6 @@ render(
 				</div>
 			</Router>
 			{/* <DevTools /> */}
-			<i className="fa fa-camera-retro fa-2x"></i>
 			<audio id="audio_ding" src={audio_ding} ></audio>
 			<audio id="audio_du" src={audio_du} ></audio>
 			<audio id="audio_diu" src={audio_diu} ></audio>

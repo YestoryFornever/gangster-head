@@ -11,17 +11,12 @@ import 'codemirror/theme/monokai.css'
 
 import {} from 'antd'
 
-import CodeBlock from './code-block'
+import CodeBlock from 'alias_utils/common/code-block/code-block.component';
 
 let updateCode = function(){
 	output = input;
 };
-let options = {
-	lineNumbers: true,
-	mode: 'markdown',
-	theme: 'monokai'
-};
-const ArticleRun = ({ match, code, sync}) => {
+const ArticleRun = ({ match, code }) => {
 	return (
 		<div className="article-run-component">
 			<div id="output" className='result-pane'>
@@ -35,9 +30,6 @@ const ArticleRun = ({ match, code, sync}) => {
 						})
 					} 
 				/>
-			</div>
-			<div id="input">
-				<CodeMirror value={code} onChange={sync} options={options} />
 			</div>
 		</div>
 	)

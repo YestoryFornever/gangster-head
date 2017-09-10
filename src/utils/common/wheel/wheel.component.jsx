@@ -20,9 +20,9 @@ const Wheel = ({ match, wheeling, deg, wheelingPause, wheelingRun, setWheelDeg }
 				<div id="yuan"></div>
 				<div className={"avatar "+(wheeling===true?"":"on-pause")} 
 				style={{
-					transform:`rotate(${deg+"deg"}) 
+					transform:`rotate(${deg+45+"deg"}) 
 						translateY(-12rem) translateY(50%) 
-						rotate(${(0-deg)+"deg"})`
+						rotate(${(0-deg-45)+"deg"})`
 				}}
 				onMouseEnter={(e)=>{
 					wheelingPause();
@@ -30,7 +30,23 @@ const Wheel = ({ match, wheeling, deg, wheelingPause, wheelingRun, setWheelDeg }
 				onMouseLeave={(e)=>{
 					wheelingRun();
 				}}>
-					<img src={Anarchy} alt="" />
+					{/* <img src={Anarchy} alt="" /> */}
+					<i className="fa fa-sign-in" aria-hidden="true"></i>
+				</div>
+				<div className={"avatar "+(wheeling===true?"":"on-pause")} 
+				style={{
+					transform:`rotate(${deg+105+"deg"}) 
+						translateY(-12rem) translateY(50%) 
+						rotate(${(0-deg-105)+"deg"})`
+				}}
+				onMouseEnter={(e)=>{
+					wheelingPause();
+				}} 
+				onMouseLeave={(e)=>{
+					wheelingRun();
+				}}>
+					{/* <img src={Anarchy} alt="" /> */}
+					<i className="fa fa-sign-out" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>

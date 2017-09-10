@@ -18,18 +18,18 @@ const Home = ({match}) => {
 				<ul>
 					<li>
 						<Link to={`${match.url}/article-list`}>
-							list
-					</Link>
+							<i className="fa fa-list" aria-hidden="true"></i>
+						</Link>
 					</li>
 					<li>
 						<Link to={`${match.url}/article-hit`}>
-							hit
-					</Link>
+							<i className="fa fa-pencil" aria-hidden="true"></i>
+						</Link>
 					</li>
 					<li>
 						<Link to={`${match.url}/article-run`}>
-							run
-					</Link>
+							<i className="fa fa-file-text" aria-hidden="true"></i>
+						</Link>
 					</li>
 				</ul>
 			</aside>

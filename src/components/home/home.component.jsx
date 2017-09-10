@@ -12,7 +12,7 @@ import Article from './article/article.container'
 const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 	return (
 		<div className="home-component">
-			{/* <aside className="home-aside">
+			<aside className="home-aside">
 				<header>
 					Home
 					<Button type='primary' onClick={e => {
@@ -33,7 +33,7 @@ const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 					}>test</Button>
 				</header>
 				<Nav match={match} />
-			</aside> */}
+			</aside>
 			<section className="home-section">
 				<Route path={`${match.url}/article`} component={Article} />
 				<Route exact path={match.url} render={()=>(
