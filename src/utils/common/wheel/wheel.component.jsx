@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
 import { history } from 'alias_utils/js/history'
 
 import Anarchy from 'alias_materials/images/anarchy.jpg'
-const Wheel = ({ match, wheeling, wheelingPause, wheelingRun, onWheel, deg }) => {
+const Wheel = ({ match, wheeling, deg, wheelingPause, wheelingRun, setWheelDeg }) => {
 	return (
 		<div className="wheel-component"
 			onWheel={e=>{
@@ -17,12 +17,12 @@ const Wheel = ({ match, wheeling, wheelingPause, wheelingRun, onWheel, deg }) =>
 				}else{
 					wheelingRun();
 				}
-				onWheel(e.deltaY>0);
+				setWheelDeg(e.deltaY>0);
 			}
 		}>
 			<div className="path" >
 				<div id="yuan"></div>
-				<div className={"avatar "+(wheeling==="RUN"?"":"on-pause")} 
+				<div className={"avatar "+(wheeling===true?"":"on-pause")} 
 				style={{
 					transform:'translate(95px, 95px) rotate('+deg+') translate(-95px,-95px)'
 				}}

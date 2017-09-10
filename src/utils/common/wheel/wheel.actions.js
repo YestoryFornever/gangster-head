@@ -1,18 +1,16 @@
-export const SET_WHEELING_STATE = 'SET_WHEELING_STATE'
-export const WHEELING_STATE = {
-    RUN:'RUN',
-    PAUSE:'PAUSE'
-}
-export const WHEELING = 'WHEELING'
-export function setWheelingState(state){
+// 设置轮盘旋转状态
+export const SET_WHEELING_STATUS = 'SET_WHEELING_STATUS'
+export function setWheelingStatus(status){
     return {
-        type:SET_WHEELING_STATE,
-        state
+        type:SET_WHEELING_STATUS,
+        status
     }
 }
-export function wheeling(deg){
+// 设置轮盘旋转角度
+export const SET_WHEELING_DEG = 'SET_WHEELING_DEG'
+export function setWheelingDeg(deg){
     return {
-        type:WHEELING,
+        type:SET_WHEELING_DEG,
         deg
     }
 }

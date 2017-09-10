@@ -1,23 +1,24 @@
 import { connect } from 'react-redux'
-import { WHEELING_STATE, setWheelingState, wheeling } from 'alias_utils/js/actions'
+import { setWheelingStatus, setWheelingDeg } from 'alias_utils/js/actions'
 import Wheel from './wheel.component'
 const _s = (state) => {
-	// console.log(state.commonReducer.wheelReducer.onWheeling%180);
 	return {
-		wheeling: state.commonReducer.wheelReducer.wheeling,
-		deg: state.commonReducer.wheelReducer.onWheeling%120*3+"deg"
+		// 控制轮盘转动状态
+		wheeling: state.commonReducer.wheelReducer.wheelStatus,
+		// 轮盘旋转角度
+		deg: state.commonReducer.wheelReducer.wheelDeg%120*3+"deg"
 	}
 }
 const _d = (dispatch) => {
 	return {
 		wheelingPause:()=>{
-			dispatch(setWheelingState(WHEELING_STATE.PAUSE));
+			dispatch(setWheelingStatus(false));
 		},
 		wheelingRun:()=>{
-			dispatch(setWheelingState(WHEELING_STATE.RUN));
+			dispatch(setWheelingStatus(true));
 		},
-		onWheel:(bool)=>{
-			dispatch(wheeling(bool))
+		setWheelDeg:(directoin)=>{
+			dispatch(setWheelingDeg(directoin))
 		}
 	}
 }

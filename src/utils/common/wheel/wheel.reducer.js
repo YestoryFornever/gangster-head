@@ -1,17 +1,17 @@
 import { combineReducers } from 'redux'
-import { SET_WHEELING_STATE, WHEELING_STATE, WHEELING } from 'alias_utils/js/actions'
-const wheeling = (state = WHEELING_STATE.RUN, action) => {
+import { SET_WHEELING_STATUS, SET_WHEELING_DEG } from 'alias_utils/js/actions'
+const wheelStatus = (state = true, action) => {
 	switch (action.type) {
-        case SET_WHEELING_STATE:
-            return action.state;
+        case SET_WHEELING_STATUS:
+            return action.status;
             break;
 		default:
 			return state
 	}
 }
-const onWheeling = (state = 0, action) => {
+const wheelDeg = (state = 0, action) => {
 	switch (action.type) {
-		case WHEELING:
+		case SET_WHEELING_DEG:
             return action.deg?state+1:state-1;
             break;
 		default:
@@ -20,8 +20,8 @@ const onWheeling = (state = 0, action) => {
 }
 
 const wheelReducer = combineReducers({
-	wheeling,
-	onWheeling
+	wheelStatus,
+	wheelDeg
 })
 
 export default wheelReducer;
