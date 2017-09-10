@@ -30,7 +30,6 @@ const Wheel = ({ match, wheeling, deg, wheelingPause, wheelingRun, setWheelDeg }
 				onMouseLeave={(e)=>{
 					wheelingRun();
 				}}>
-					{/* <img src={Anarchy} alt="" /> */}
 					<i className="fa fa-sign-in" aria-hidden="true"></i>
 				</div>
 				<div className={"avatar "+(wheeling===true?"":"on-pause")} 
@@ -45,7 +44,7 @@ const Wheel = ({ match, wheeling, deg, wheelingPause, wheelingRun, setWheelDeg }
 				onMouseLeave={(e)=>{
 					wheelingRun();
 				}}>
-					{/* <img src={Anarchy} alt="" /> */}
+					<img src={Anarchy} alt="" />
 					<i className="fa fa-sign-out" aria-hidden="true"></i>
 				</div>
 			</div>

@@ -2,20 +2,6 @@
     position: absolute;
     bottom:0;
     overflow:hidden;
-    @keyframes spin {
-        from { 
-            transform: 
-                rotate(0turn) 
-                translateY(-12rem) translateY(50%) 
-                rotate(1turn)
-        }
-        to{ 
-            transform: 
-                rotate(1turn) 
-                translateY(-12rem) translateY(50%) 
-                rotate(0turn)
-        }
-    }
     .path{
         position: relative;
         bottom:-6.4rem;
@@ -38,6 +24,20 @@
         margin-top:-2rem;
         margin-left:-2rem;
     }
+    @keyframes spin {
+        from { 
+            transform: 
+                rotate(0turn) 
+                translateY(-12rem) translateY(50%) 
+                rotate(1turn)
+        }
+        to{ 
+            transform: 
+                rotate(1turn) 
+                translateY(-12rem) translateY(50%) 
+                rotate(0turn)
+        }
+    }
     .avatar{
         width:4rem;
         height:4rem;
@@ -46,7 +46,7 @@
         left:50%;
         margin-top:-2rem;
         margin-left:-2rem;
-        // animation: spin 6s linear infinite;
+        animation: spin 6s linear infinite;
         img{
             width:100%;
             height:100%;
