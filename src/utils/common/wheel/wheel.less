@@ -11,17 +11,31 @@
         height:24rem;
         border-radius: 12rem;
     }
+    @fixed-star-r:4rem;
     div.fixed-star{
-        width:4rem;
-        height:4rem;
-        line-height:4rem;
-        border-radius: 2rem;
+        width:@fixed-star-r;
+        height:@fixed-star-r;
+        line-height:@fixed-star-r;
+        border-radius: @fixed-star-r/2;
         background-image:url(/materials/images/anarchy.jpg);
         background-size:100%;
         position: absolute;
         top:50%;
         left:50%;
-        margin-top:-2rem;
-        margin-left:-2rem;
+        margin-top:-@fixed-star-r/2;
+        margin-left:-@fixed-star-r/2;
+    }
+    @path-r:20rem;
+    div.path{
+        width: @path-r;
+        height: @path-r;
+        line-height:@path-r;
+        border-radius:@path-r/2;
+        border:1px dashed @primary-color;
+        position: absolute;
+        top:50%;
+        left:50%;
+        margin-top:-@path-r/2;
+        margin-left:-@path-r/2;
     }
 }

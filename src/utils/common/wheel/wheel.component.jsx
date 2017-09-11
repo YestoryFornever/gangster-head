@@ -19,6 +19,7 @@ const Wheel = ({ match, wheeling, deg, wheelingPause, wheelingRun, setWheelDeg }
 			}
 		}>
 			<div className="star-system" >
+				<div className="path"></div>
 				<div className="fixed-star"></div>
 
 				{/* <div className={"planet " + (wheeling === true ? "" : "on-pause")}
