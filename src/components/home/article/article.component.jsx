@@ -10,29 +10,28 @@ import ArticleRun from './article-run/article-run.container'
 const Home = ({match}) => {
 	return (
 		<div className="article-component">
-			<aside className="article-aside">
-				{/* <button type="button" onClick={e=>{
-						history.push('./article-hit')
-					}
-				}>article-hit</button> */}
-				<ul>
-					<li>
-						<Link to={`${match.url}/article-list`}>
-							<i className="fa fa-list" aria-hidden="true"></i>
-						</Link>
-					</li>
-					<li>
-						<Link to={`${match.url}/article-hit`}>
-							<i className="fa fa-pencil" aria-hidden="true"></i>
-						</Link>
-					</li>
-					<li>
-						<Link to={`${match.url}/article-run`}>
-							<i className="fa fa-file-text" aria-hidden="true"></i>
-						</Link>
-					</li>
-				</ul>
-			</aside>
+			<ul className="article-aside">
+				<li>
+					<Link to={`${match.url}/article-list`}>
+						<i className="fa fa-list" aria-hidden="true"></i>
+					</Link>
+				</li>
+				<li>
+					<Link to={`${match.url}/article-hit`}>
+						<i className="fa fa-pencil" aria-hidden="true"></i>
+					</Link>
+				</li>
+				<li>
+					<Link to={`${match.url}/article-run`}>
+						<i className="fa fa-file-text" aria-hidden="true"></i>
+					</Link>
+				</li>
+				<li>
+					<Link to={`${match.url}/article-run`}>
+						<i className="fa fa-save" aria-hidden="true"></i>
+					</Link>
+				</li>
+			</ul>
 			<article className="article-article">
 				<Route exact path={match.url} render={() => (
 					<Redirect to={`${match.url}/article-list`} />
