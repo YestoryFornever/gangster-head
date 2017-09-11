@@ -12,34 +12,26 @@ import Article from './article/article.container'
 const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 	return (
 		<div className="home-component">
-			<aside className="home-aside">
-				<header>
-					Home
-					<Button type='primary' onClick={e => {
-						e.preventDefault();
-						onLogin(true);
-					}
-					}>登录</Button>
-					<Button type='primary' onClick={e => {
-						e.preventDefault();
-						onLogout(false);
-					}
-					}>注销</Button>
-					{authenticated && (<span>asdf</span>)}
-					<Button onClick={e => {
-						e.preventDefault();
-						document.getElementById('audio_ding').play();
-					}
-					}>test</Button>
-				</header>
-				<Nav match={match} />
-			</aside>
 			<section className="home-section">
 				<Route path={`${match.url}/article`} component={Article} />
 				<Route exact path={match.url} render={()=>(
 					<Redirect to={`${match.url}/article`} />
 				)} />
 			</section>
+			<aside className="home-aside">
+				<header>
+					<Button type='primary' onClick={e => {
+						e.preventDefault();
+						onLogin(true);
+					}}>登录</Button>
+					<Button type='primary' onClick={e => {
+						e.preventDefault();
+						onLogout(false);
+					}}>注销</Button>
+					{authenticated && (<span>已登录</span>)}
+				</header>
+				<Nav match={match} />
+			</aside>
 			<Wheel />
 		</div>
 	)

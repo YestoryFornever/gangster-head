@@ -107,21 +107,3 @@ render(
 	</Provider>,
 	document.getElementById('app')
 );
-
-/**
- * error页面
- * 过场动画
- * @button audio
- * 路由缓存
- * @富文本编辑器
- * @markdown
- * 
- * favicon 404
- * redux-gen - 生成器
- * react-redux-form - 表单提交
- * 
- * #css module
- * #react-router-redux - 路由
- * #extract-text-webpack-plugin
- * #redux-thunk - 实现异步action （ajax）
- */
