@@ -1,17 +1,17 @@
+@import 'variable';
 .wheel-component{
     position: absolute;
     bottom:0;
     overflow:hidden;
-    .path{
+    .star-system{
         position: relative;
         bottom:-6.4rem;
         left:-6.4rem;
         width:24rem;
         height:24rem;
         border-radius: 12rem;
-        // background:#D6B788;
     }
-    div#yuan{
+    div.fixed-star{
         width:4rem;
         height:4rem;
         line-height:4rem;
@@ -38,22 +38,27 @@
                 rotate(0turn)
         }
     }
-    .avatar{
-        width:4rem;
-        height:4rem;
+    .planet{
         position: absolute;
-        top:50%;
-        left:50%;
-        margin-top:-2rem;
-        margin-left:-2rem;
-        animation: spin 6s linear infinite;
-        img{
+        top: 50%;
+        left: 50%;
+        margin-top: -2rem;
+        margin-left: -2rem;
+        width: 4rem;
+        height: 4rem;
+        line-height: 4rem;
+        border-radius: 2rem;
+        background: @primary-color;
+        text-align: center;
+        color: #eee;
+        // animation: spin 6s linear infinite;
+        /* img{
             width:100%;
             height:100%;
             border-radius: 2rem;
-        }
+        } */
     }
-    .avatar.on-pause{
+    .planet.on-pause{
         animation-play-state: paused;
     }
 }
