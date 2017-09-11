@@ -1,3 +1,4 @@
+import './planet.less'
 import React, { Component, PropTypes } from 'react'
 const Planet = ({wheeling, deg, wheelingPause, wheelingRun, skew, icon}) => (
     < div className={"planet " + (wheeling === true ? "" : "on-pause")}
