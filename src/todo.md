@@ -1,4 +1,3 @@
-/**
  * article crud
  * user crud
  * 路由缓存
@@ -16,4 +15,3 @@
  * #react-router-redux - 路由
  * #extract-text-webpack-plugin
  * #redux-thunk - 实现异步action （ajax）
- */
