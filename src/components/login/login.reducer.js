@@ -5,7 +5,7 @@ const auth = (state = false, action) => {
 	// console.log(action);
 	switch (action.type) {
 		case AUTHENTICATED:
-			return action;
+			return action.auth;
 		default:
 			return state;
 	}

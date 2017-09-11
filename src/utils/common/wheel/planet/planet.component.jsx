@@ -1,6 +1,6 @@
 import './planet.less'
 import React, { Component, PropTypes } from 'react'
-const Planet = ({wheeling, deg, wheelingPause, wheelingRun, skew, icon}) => (
+const Planet = ({wheeling, deg, wheelingPause, wheelingRun, skew, icon, onPlanetClick}) => (
     < div className={"planet " + (wheeling === true ? "" : "on-pause")}
         style={{
             transform: `rotate(${deg + skew + "deg"}) 
@@ -12,7 +12,8 @@ const Planet = ({wheeling, deg, wheelingPause, wheelingRun, skew, icon}) => (
         }}
         onMouseLeave={(e) => {
             wheelingRun();
-        }}>
+        }}
+        onClick={onPlanetClick}>
         <i className={"fa "+icon} aria-hidden="true"></i>
     </div >
 )

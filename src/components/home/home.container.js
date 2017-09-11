@@ -4,7 +4,7 @@ import { history } from 'alias_utils/js/history'
 import Home from './home.component'
 const _s = (state) => {
 	return {
-		authenticated: state.loginReducer.login
+		authenticated: state.loginReducer.auth
 	}
 }
 const _d = (dispatch) => {

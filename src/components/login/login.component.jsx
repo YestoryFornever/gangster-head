@@ -20,7 +20,7 @@ const Login = ({ onLogin, authenticated }) => {
 					e.preventDefault();
 					onLogin(true);
 				}}>登录</Button>
-				{ authenticated && ( <span>asdf</span> ) }
+				{ authenticated && ( <span>已登录</span> ) }
 			</form>
 			{/*<DatePicker />*/}
 		</div>

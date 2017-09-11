@@ -8,7 +8,7 @@ import Planet from './planet/planet.component'
 import { history } from 'alias_utils/js/history'
 
 import Anarchy from 'alias_materials/images/anarchy.jpg'
-const Wheel = ({ match, wheeling, deg, wheelingPause, wheelingRun, setWheelDeg }) => {
+const Wheel = ({ match, wheeling, deg, wheelingPause, wheelingRun, setWheelDeg, onLogin, onLogout, authenticated }) => {
 	return (
 		<div className="wheel-component"
 			onWheel={e=>{
@@ -22,40 +22,18 @@ const Wheel = ({ match, wheeling, deg, wheelingPause, wheelingRun, setWheelDeg }
 				<div className="path"></div>
 				<div className="fixed-star"></div>
 
-				{/* <div className={"planet " + (wheeling === true ? "" : "on-pause")}
-					style={{
-						transform: `rotate(${deg - 15 + "deg"}) 
-						translateY(-12rem) translateY(50%) 
-						rotate(${(0 - deg + 15) + "deg"})`
-					}}
-					onMouseEnter={(e) => {
-						wheelingPause();
-					}}
-					onMouseLeave={(e) => {
-						wheelingRun();
-					}}>
-					<i className="fa fa-sign-out" aria-hidden="true"></i>
-				</div>
-
-				<div className={"planet " + (wheeling === true ? "" : "on-pause")}
-					style={{
-						transform: `rotate(${deg + 45 + "deg"}) 
-						translateY(-12rem) translateY(50%) 
-						rotate(${(0 - deg - 45) + "deg"})`
-					}}
-					onMouseEnter={(e) => {
-						wheelingPause();
-					}}
-					onMouseLeave={(e) => {
-						wheelingRun();
-					}}>
-					<i className="fa fa-sign-in" aria-hidden="true"></i>
-				</div> */}
 				<Planet wheeling={wheeling} deg={deg}
 					wheelingPause={wheelingPause}
 					wheelingRun={wheelingRun}
 					skew={-15} 
-					icon={"fa-sign-out"}/>
+					icon={authenticated ? "fa-sign-out" : "fa-sign-in"}
+					onPlanetClick={e=>{
+						if (authenticated){
+							onLogout()
+						}else{
+							onLogin()
+						}
+					}}/>
 
 				<Planet wheeling={wheeling} deg={deg}
 					wheelingPause={wheelingPause}
