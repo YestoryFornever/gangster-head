@@ -9,3 +9,11 @@
 .overspread{
 	.pos;
 }
+.engrave(@color:#565656, @shadow:2px 2px 3px rgba(255,255,255,0.5)){
+	background-color: @color;
+	text-shadow: @shadow;
+	color: transparent;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	background-clip: text;
+}
