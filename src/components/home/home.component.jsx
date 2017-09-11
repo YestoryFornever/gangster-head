@@ -18,7 +18,7 @@ const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 					<Redirect to={`${match.url}/article`} />
 				)} />
 			</section>
-			{/* <aside className="home-aside">
+			<aside className="home-aside">
 				<header>
 					<Button type='primary' onClick={e => {
 						e.preventDefault();
@@ -30,8 +30,8 @@ const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 					}}>注销</Button>
 				</header>
 				<Nav match={match} />
-			</aside> */}
-			<Wheel />
+			</aside>
+			{/* <Wheel /> */}
 			{authenticated && (<span>已登录</span>)}
 		</div>
 	)
