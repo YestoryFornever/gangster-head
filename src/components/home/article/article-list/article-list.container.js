@@ -8,7 +8,7 @@ const _s = (state) => {
 }
 const _d = (dispatch) => {
 	return {
-		getArticleList: (n)=>{
+		getArticleList: ()=>{
 			fetchArticleList({
 				data:{},
 				success: (req) => {

@@ -4,21 +4,28 @@ import { BrowserRouter, Route, Link } from 'react-router-dom'
 
 import { Button, Timeline } from 'antd'
 
-const ArticleList = ({ match, articles, getArticleList}) => {
-	return (
-		<div>
-			<Button onClick={e => {
-				e.preventDefault();
-				getArticleList();
-			}
-			}>get</Button>
-			<Timeline>
-				{articles.map((item, index) => 
-					<Timeline.Item key={index}>{item.title}</Timeline.Item>)
+export default class ArticleList extends Component{
+	constructor(props){
+		super(props);
+	}
+	componentDidMount(){
+		this.props.getArticleList();
+	}
+	render(){
+		return (
+			<div>
+				<Button onClick={e => {
+					e.preventDefault();
+					this.props.getArticleList();
 				}
-			</Timeline>
-			{/* <h1 className="test-text">测试用文本，words for test</h1> */}
-		</div>
-	)
-};
-export default ArticleList;
+				}>get</Button>
+				<Timeline>
+					{this.props.articles.map((item, index) =>
+						<Timeline.Item key={index}>{item.title}</Timeline.Item>)
+					}
+				</Timeline>
+				{/* <h1 className="test-text">测试用文本，words for test</h1> */}
+			</div>
+		)
+	}
+}
