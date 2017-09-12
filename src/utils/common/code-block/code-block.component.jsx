@@ -33,3 +33,7 @@ CodeBlock.propTypes = {
 };
 
 module.exports = CodeBlock;
+/**
+ * demo
+ * <CodeBlock literal="function aaa(){}" language="javascript" />
+ */

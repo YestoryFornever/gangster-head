@@ -1,6 +1,6 @@
 import './article-list.less'
 import React, { Component, PropTypes } from 'react'
-import { BrowserRouter, Route, Link } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 
 import { Button, Timeline } from 'antd'
 
@@ -17,9 +17,9 @@ export default class ArticleList extends Component{
 				<Timeline>
 					{this.props.articles.map((item, index) =>
 						<Timeline.Item color="#28c" key={index}>
-							<Link to={`../article-run/${item._id}`}>
+							<Link to={`/home/article/article-run/${item._id}`}>
 								{item.title} {item.time}
-							</Link> 
+							</Link>
 						</Timeline.Item>)
 					}
 				</Timeline>

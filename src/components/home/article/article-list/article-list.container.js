@@ -12,7 +12,7 @@ const _d = (dispatch) => {
 			fetchArticleList({
 				data:{},
 				success: (req) => {
-					console.log(req);
+					// console.log(req);
 					dispatch(article_list$update(req))
 				}, error: () => {
 					console.log('err');

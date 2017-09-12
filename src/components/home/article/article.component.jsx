@@ -29,6 +29,11 @@ const Home = ({ match, saveModalStatus, openSaveModal, closeSaveModal}) => {
 					</Link>
 				</li>
 				<li>
+					<Link to={`/home/article/article-run/23445235`}>
+						<i className="fa fa-file-text" aria-hidden="true"></i>
+					</Link>
+				</li>
+				<li>
 					<i className="fa fa-save" aria-hidden="true" onClick={openSaveModal}></i>
 				</li>
 			</ul>
@@ -38,6 +43,8 @@ const Home = ({ match, saveModalStatus, openSaveModal, closeSaveModal}) => {
 				)} />
 				<Route path={`${match.url}/article-list`} component={ArticleList} />
 				<Route path={`${match.url}/article-hit`} component={ArticleHit} />
+				{/* 顺序很重要，自上而下匹配 */}
+				<Route path={`${match.url}/article-run/:id`} component={ArticleRun} />
 				<Route path={`${match.url}/article-run`} component={ArticleRun} />
 			</article>
 			<Modal

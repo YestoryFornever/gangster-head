@@ -16,7 +16,7 @@ export const fetchArticleList = (opts) => (
             url: "crud/article/list",
             data: data,
             success: req => {
-                console.log(req);
+                // console.log(req);
                 success && success(req);
             },
             error: err => {
