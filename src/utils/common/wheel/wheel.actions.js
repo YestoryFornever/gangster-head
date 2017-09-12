@@ -1,16 +1,14 @@
 // 设置轮盘旋转状态
-export const SET_WHEELING_STATUS = 'SET_WHEELING_STATUS'
-export function setWheelingStatus(status){
+export function wheeling$status(_){
     return {
-        type:SET_WHEELING_STATUS,
-        status
+        type:'WHEELING_STATUS',
+        _
     }
 }
 // 设置轮盘旋转角度
-export const SET_WHEELING_DEG = 'SET_WHEELING_DEG'
-export function setWheelingDeg(deg){
+export function wheeling$deg(_){
     return {
-        type:SET_WHEELING_DEG,
-        deg
+        type:'WHEELING_DEG',
+        _
     }
 }

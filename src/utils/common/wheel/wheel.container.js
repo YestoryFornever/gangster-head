@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { setWheelingStatus, setWheelingDeg, setAuthenticate } from 'alias_utils/js/actions'
+import { wheeling$status, wheeling$deg, setAuthenticate } from 'alias_utils/js/actions'
 import { history } from 'alias_utils/js/history'
 import Wheel from './wheel.component'
 const _s = (state) => {
@@ -8,19 +8,19 @@ const _s = (state) => {
 		wheeling: state.commonReducer.wheelReducer.wheelStatus,
 		// 轮盘旋转角度%6[每圈转动次数]*60[每次转动角度] +45保证了出场角度且在一个直角内可显示三项
 		deg: (state.commonReducer.wheelReducer.wheelDeg*60),//+45
-		authenticated: state.loginReducer.auth
+		authenticated: state.commonReducer.auth
 	}
 }
 const _d = (dispatch) => {
 	return {
 		wheelingPause:()=>{
-			dispatch(setWheelingStatus(false));
+			dispatch(wheeling$status(false));
 		},
 		wheelingRun:()=>{
-			dispatch(setWheelingStatus(true));
+			dispatch(wheeling$status(true));
 		},
 		setWheelDeg:(directoin)=>{
-			dispatch(setWheelingDeg(directoin))
+			dispatch(wheeling$deg(directoin))
 		}, 
 		onLogin: () => {
 			history.push('/login');
