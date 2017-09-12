@@ -1,14 +1,9 @@
 import { _json } from 'alias_utils/js/fetch'
 /*
- * action 类型
- */
-export const UPDATE_ARTICLE_LIST = 'UPDATE_ARTICLE_LIST'
-
-/*
  * action 创建函数
  */
-export const updateArticles = (articles) => {
-    return { type: UPDATE_ARTICLE_LIST, articles }
+export const article_list$update = (_) => {
+    return { type: 'ARTICLE/LIST/UPDATE', _ }
 }
 /**
  * fetch

@@ -1,10 +1,8 @@
-import { UPDATE_ARTICLE_LIST } from 'alias_utils/js/actions'
-
 export default function articles(state = [], action){
     switch (action.type) {
-		case UPDATE_ARTICLE_LIST:
+		case 'ARTICLE/LIST/UPDATE':
 			return [
-				...action.articles
+				...action._
 			]
 			break;
 		default:

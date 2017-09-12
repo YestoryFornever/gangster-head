@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { setAuthenticate, articleList, updateArticles } from 'alias_utils/js/actions'
+import { setAuthenticate, articleList, article_list$update } from 'alias_utils/js/actions'
 import ArticleList from './article-list.component'
 const _s = (state) => {
 	return {
@@ -13,7 +13,7 @@ const _d = (dispatch) => {
 				data:{},
 				success: (req) => {
 					console.log(req);
-					dispatch(updateArticles(req))
+					dispatch(article_list$update(req))
 				}, error: () => {
 					console.log('err');
 				}
