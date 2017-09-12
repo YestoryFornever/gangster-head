@@ -14,14 +14,13 @@ export default class ArticleList extends Component{
 	render(){
 		return (
 			<div>
-				<Button onClick={e => {
-					e.preventDefault();
-					this.props.getArticleList();
-				}
-				}>get</Button>
 				<Timeline>
 					{this.props.articles.map((item, index) =>
-						<Timeline.Item key={index}>{item.title}</Timeline.Item>)
+						<Timeline.Item color="#28c" key={index}>
+							<Link to={`../article-run/${item._id}`}>
+								{item.title} {item.time}
+							</Link> 
+						</Timeline.Item>)
 					}
 				</Timeline>
 				{/* <h1 className="test-text">测试用文本，words for test</h1> */}
