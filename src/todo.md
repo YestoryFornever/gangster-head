@@ -2,7 +2,8 @@
  * user crud
  * 路由缓存
  * error页面
- * 过场动画（interlude）
+ * 过场动画（interlude）[react-addons-css-transition-group][ReactCSSTransitionGroup]
+ * code split 升级 bundle-loader
  * 
  * favicon 404
  * redux-gen - 生成器
