@@ -1,8 +1,18 @@
 import { combineReducers } from 'redux'
 
-import wheelReducer from './wheel/wheel.reducer'
+const auth = (state = false, action) => {
+	// console.log(action);
+	switch (action.type) {
+		case 'AUTHENTICATED':
+			return action._;
+		default:
+			return state;
+	}
+}
 
+import wheelReducer from './wheel/wheel.reducer'
 const commonReducer = combineReducers({
+	auth,
 	wheelReducer
 })
 

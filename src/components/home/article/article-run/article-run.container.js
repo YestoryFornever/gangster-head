@@ -7,10 +7,6 @@ const _s = (state) => {
 	}
 }
 const _d = (dispatch) => {
-	return {
-		sync: (code)=>{
-			dispatch(syncCode(code))
-		}
-	}
+	return {}
 }
 export default connect(_s, _d)(ArticleRun);

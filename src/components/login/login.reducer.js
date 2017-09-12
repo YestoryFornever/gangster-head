@@ -1,18 +1,5 @@
-import { combineReducers } from 'redux'
-import { AUTHENTICATED } from 'alias_utils/js/actions'
+/* import { combineReducers } from 'redux'
 
-const auth = (state = false, action) => {
-	// console.log(action);
-	switch (action.type) {
-		case AUTHENTICATED:
-			return action.auth;
-		default:
-			return state;
-	}
-}
+const loginReducer = combineReducers({})
 
-const loginReducer = combineReducers({
-	auth,
-})
-
-export default loginReducer;
+export default loginReducer; */

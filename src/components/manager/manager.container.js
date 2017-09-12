@@ -5,7 +5,7 @@ import Manager from './manager.component'
 const _s = (state) => {
 	// console.log(state);
 	return {
-		authenticated: state.loginReducer.auth
+		authenticated: state.commonReducer.auth
 	}
 }
 const _d = (dispatch) => {

@@ -4,7 +4,7 @@ import { history } from 'alias_utils/js/history'
 import Login from './login.component'
 const _s = (state) => {
 	return {
-		authenticated: state.loginReducer.auth
+		authenticated: state.commonReducer.auth
 	}
 }
 const _d = (dispatch) => {
