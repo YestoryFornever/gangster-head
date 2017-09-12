@@ -25,7 +25,6 @@ const ArticleHit = ({match, code, sync}) => {
 	return (
 		<div className="article-hit-component">
             <div id="output" className='result-pane'>
-				<CodeBlock literal="function aaa(){}" language="javascript" />
 				<ReactMarkdown 
 					source={code} 
 					className="result"
