@@ -8,7 +8,7 @@ export const article_list$update = (_) => {
 /**
  * fetch
  */
-export const articleList = (opts) => (
+export const fetchArticleList = (opts) => (
     (dispatch) => {
         const { data, success, error } = opts;
         _json({

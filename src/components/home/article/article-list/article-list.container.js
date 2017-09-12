@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { setAuthenticate, articleList, article_list$update } from 'alias_utils/js/actions'
+import { setAuthenticate, fetchArticleList, article_list$update } from 'alias_utils/js/actions'
 import ArticleList from './article-list.component'
 const _s = (state) => {
 	return {
@@ -9,7 +9,7 @@ const _s = (state) => {
 const _d = (dispatch) => {
 	return {
 		getArticleList: (n)=>{
-			articleList({
+			fetchArticleList({
 				data:{},
 				success: (req) => {
 					console.log(req);
