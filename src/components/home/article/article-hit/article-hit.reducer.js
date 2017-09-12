@@ -1,4 +1,3 @@
-import { SYNC_CODE } from 'alias_utils/js/actions'
 let initCode = `# Live demo
 
 Changes are automatically rendered as you type.
@@ -36,8 +35,8 @@ Read usage information and more on [GitHub](//github.com/rexxars/react-markdown)
 A component by [VaffelNinja](http://vaffel.ninja) / Espen Hovlandsdal`
 export default function hitArticle(state = initCode, action) {
     switch (action.type) {
-        case SYNC_CODE:
-            return action.code
+        case 'ARTICLE/HIT/SYNC_CODE':
+            return action._
             break;
         default:
             return state
