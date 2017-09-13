@@ -25,16 +25,19 @@ export default class ArticleHit extends Component{
 		super(props);
 	}
 	componentDidMount() {
-		this.props.getArticle({
-			id: this.props.match.params.id
-		});
+		/* 编辑时 */
+		if (this.props.match.params.id){
+			this.props.getArticle({
+				id: this.props.match.params.id
+			});
+		}
 	}
 	render(){
 		return (
 			<div className="article-hit-component">
 				<ul className="article-aside">
 					<li>
-						<Link to={`${Path.relative(this.props.match.url, 2)}/article-list`}>
+						<Link to={`${Path.backto(this.props.match.url, '/article')}/article-list`}>
 							<i className="fa fa-list" aria-hidden="true"></i>
 						</Link>
 					</li>
