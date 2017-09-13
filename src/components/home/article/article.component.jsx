@@ -31,8 +31,8 @@ const Home = ({ match, saveModalStatus, openSaveModal, closeSaveModal}) => {
 				)} />
 				<Route path={`${match.url}/article-list`} component={ArticleList} />
 				{/* 顺序很重要，自上而下匹配 */}
-				<Route path={`${match.url}/article-hit`} component={ArticleHit} />
-				<Route path={`${match.url}/article-hit/:id`} component={ArticleHit} />
+				<Route path={`${match.url}/article-hit/:id?`} component={ArticleHit} />
+				{/* <Route path={`${match.url}/article-hit`} component={ArticleHit} /> */}
 				<Route path={`${match.url}/article-run/:id`} component={ArticleRun} />
 			</article>
 			<Modal
