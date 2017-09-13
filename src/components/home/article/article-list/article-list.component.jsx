@@ -19,7 +19,7 @@ export default class ArticleList extends Component{
 				<Timeline>
 					{this.props.articles.map((item, index) =>
 						<Timeline.Item color="#28c" key={index}>
-							<Link to={`${Path.relative(this.props.match.url,1)}/article-run/${item._id}`}>
+							<Link to={`${Path.relative(this.props.match.url,1)}/article-run/${item.articleId}`}>
 								{item.title} {item.time}
 							</Link>
 						</Timeline.Item>)

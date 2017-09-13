@@ -8,22 +8,32 @@ import {} from 'antd'
 
 import CodeBlock from 'alias_utils/common/code-block/code-block.component';
 
-const ArticleRun = ({ match, code }) => {
-	return (
-		<div className="article-run-component">
-			<div>{match.params.id}</div>
-			<div id="output" className='result-pane'>
-				<ReactMarkdown 
-					source={code} 
-					className="result"
-					renderers={
-						Object.assign({}, ReactMarkdown.renderers, {
-							CodeBlock: CodeBlock
-						})
-					} 
-				/>
+export default class ArticleRun extends Component{
+	constructor(props) {
+		super(props);
+	}
+	componentDidMount() {
+		debugger;
+		this.props.getArticle({
+			id:this.props.match.params.id
+		});
+	}
+	render(){
+		return (
+			<div className="article-run-component">
+				<div>{this.props.match.params.id}</div>
+				<div id="output" className='result-pane'>
+					<ReactMarkdown
+						source={this.props.code}
+						className="result"
+						renderers={
+							Object.assign({}, ReactMarkdown.renderers, {
+								CodeBlock: CodeBlock
+							})
+						}
+					/>
+				</div>
 			</div>
-		</div>
-	)
+		)
+	}
 };
-export default ArticleRun;
