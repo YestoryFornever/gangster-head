@@ -1,20 +1,18 @@
 import { connect } from 'react-redux'
-import { fetchArticle } from 'alias_utils/js/actions'
+import { fetchArticle, article_run$read } from 'alias_utils/js/actions'
 import ArticleRun from './article-run.component'
 const _s = (state) => {
 	return {
-		code: state.homeReducer.articleReducer.runArticle
+		code: state.homeReducer.articleReducer.runArticle.content
 	}
 }
 const _d = (dispatch) => {
 	return {
 		getArticle: (param) => {
-			debugger;
 			fetchArticle({
 				data: param,
-				success: (req) => {
-					debugger;
-					console.log(req);
+				success: (data) => {
+					dispatch(article_run$read(data[0]))
 				}, error: () => {
 					console.log('err');
 				}

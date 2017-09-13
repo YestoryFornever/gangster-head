@@ -13,7 +13,6 @@ export default class ArticleRun extends Component{
 		super(props);
 	}
 	componentDidMount() {
-		debugger;
 		this.props.getArticle({
 			id:this.props.match.params.id
 		});
@@ -21,7 +20,6 @@ export default class ArticleRun extends Component{
 	render(){
 		return (
 			<div className="article-run-component">
-				<div>{this.props.match.params.id}</div>
 				<div id="output" className='result-pane'>
 					<ReactMarkdown
 						source={this.props.code}

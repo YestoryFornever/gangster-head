@@ -11,9 +11,9 @@ const _d = (dispatch) => {
 		getArticleList: ()=>{
 			fetchArticleList({
 				data:{},
-				success: (req) => {
-					// console.log(req);
-					dispatch(article_list$update(req))
+				success: (data) => {
+					// console.log(data);
+					dispatch(article_list$update(data))
 				}, error: () => {
 					console.log('err');
 				}

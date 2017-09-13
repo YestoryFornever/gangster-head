@@ -1,3 +1,9 @@
+/*
+ * action 创建函数
+ */
+export const article_run$read = (_) => {
+    return { type: 'ARTICLE/RUN/READ', _ }
+}
 /**
  * fetch
  */
@@ -9,8 +15,7 @@ export const fetchArticle = (opts) => (
             type: "GET",
             url: "crud/article/read/"+data.id,
             success: req => {
-                console.log(req);
-                success && success(req);
+                success && success(req.data);
             },
             error: err => {
                 console.log(err);
