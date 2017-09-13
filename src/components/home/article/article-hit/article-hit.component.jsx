@@ -9,7 +9,7 @@ import 'codemirror/mode/markdown/markdown'
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/monokai.css'
 
-import { Modal } from 'antd'
+import { Modal, Input } from 'antd'
 
 import CodeBlock from 'alias_utils/common/code-block/code-block.component';
 
@@ -20,46 +20,61 @@ let options = {
 	mode: 'markdown',
 	theme: 'monokai'
 };
-const ArticleHit = ({ match, code, sync, saveModalStatus, openSaveModal, closeSaveModal}) => {
-	return (
-		<div className="article-hit-component">
-			<ul className="article-aside">
-				<li>
-					<Link to={`${Path.relative(match.url, 2)}/article-list`}>
-						<i className="fa fa-list" aria-hidden="true"></i>
-					</Link>
-				</li>
-				<li>
-					<i className="fa fa-save" aria-hidden="true" onClick={openSaveModal}></i>
-				</li>
-			</ul>
-			<main className="article-hit-main">
-				<div id="output" className='result-pane'>
-					<ReactMarkdown
-						source={code}
-						className="result"
-						renderers={
-							Object.assign({}, ReactMarkdown.renderers, {
-								CodeBlock: CodeBlock
-							})
-						}
-					/>
-				</div>
-				<div id="input">
-					<CodeMirror value={code} onChange={sync} options={options} />
-				</div>
-			</main>
-			<Modal
-				title="save"
-				visible={saveModalStatus}
-				onOk={e => { }}
-				onCancel={closeSaveModal}
-			>
-				<p>Some contents...</p>
-				<p>Some contents...</p>
-				<p>Some contents...</p>
-			</Modal>
-		</div>
-	)
+export default class ArticleHit extends Component{
+	constructor(props) {
+		super(props);
+	}
+	componentDidMount() {
+		this.props.getArticle({
+			id: this.props.match.params.id
+		});
+	}
+	render(){
+		return (
+			<div className="article-hit-component">
+				<ul className="article-aside">
+					<li>
+						<Link to={`${Path.relative(this.props.match.url, 2)}/article-list`}>
+							<i className="fa fa-list" aria-hidden="true"></i>
+						</Link>
+					</li>
+					<li>
+						<i className="fa fa-save" aria-hidden="true" onClick={this.props.openSaveModal}></i>
+					</li>
+				</ul>
+				<main className="article-hit-main">
+					<div id="output" className='result-pane'>
+						<ReactMarkdown
+							source={this.props.code}
+							className="result"
+							renderers={
+								Object.assign({}, ReactMarkdown.renderers, {
+									CodeBlock: CodeBlock
+								})
+							}
+						/>
+					</div>
+					<div id="input">
+						<textarea value={this.props.code}></textarea>
+						<CodeMirror value={this.props.code} options={options} 
+							onChanges={e=>{
+								console.log('changes',e);
+							}}
+							onUpdate={e => {
+								console.log('onupdate',e);
+							}}
+							onChange={this.props.sync} />
+					</div>
+				</main>
+				<Modal
+					title="save"
+					visible={this.props.saveModalStatus}
+					onOk={e => { }}
+					onCancel={this.props.closeSaveModal}
+				>
+					<Input placeholder="title" defaultValue={"sdf"} />
+				</Modal>
+			</div>
+		)
+	}
 };
-export default ArticleHit;
