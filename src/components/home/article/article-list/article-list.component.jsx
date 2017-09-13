@@ -24,6 +24,9 @@ export default class ArticleList extends Component{
 							<Link to={`${Path.relative(this.props.match.url,1)}/article-run/${item._id}`}>
 								{item.title} {item.time}
 							</Link>
+							<Link to={`${Path.relative(this.props.match.url, 1)}/article-hit/${item._id}`}>
+								edit
+							</Link>
 						</Timeline.Item>)
 					}
 				</Timeline>
