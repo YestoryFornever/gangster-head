@@ -1,12 +1,33 @@
 /*
  * action 创建函数
  */
-export const article_hit$sync_code = ( _ ) => {
-    return { type: 'ARTICLE/HIT/SYNC_CODE', _ }
+export const article_hit$content = ( _ ) => {
+    return { type: 'ARTICLE/HIT/CONTENT', _ }
 }
-export const article$toggleSaveModal = (_) => {
-    return {
-        type: 'ARTICLE/TOGGLE_SAVE_MODAL',
-        _
+export const article_hit$title = (_) => {
+    return { type: 'ARTICLE/HIT/TITLE', _ }
+}
+export const article$toggleSaveModal = ( _ ) => {
+    return { type: 'ARTICLE/TOGGLE_SAVE_MODAL', _ }
+}
+/**
+ * fetch
+ */
+import { _json } from 'alias_utils/js/fetch'
+export const fetchCreateArticle = (opts) => (
+    (dispatch) => {
+        const { data, success, error } = opts;
+        _json({
+            type: "POST",
+            url: "crud/article/create",
+            data: data,
+            success: req => {
+                success && success(req.data);
+            },
+            error: err => {
+                console.log(err);
+                error && error();
+            }
+        });
     }
-}
+);

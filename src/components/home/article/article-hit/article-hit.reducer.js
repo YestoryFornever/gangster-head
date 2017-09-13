@@ -34,9 +34,18 @@ Read usage information and more on [GitHub](//github.com/rexxars/react-markdown)
 ---------------
 
 A component by [VaffelNinja](http://vaffel.ninja) / Espen Hovlandsdal`;
-const hitArticle = (state = initCode, action) => {
+const content = (state = '', action) => {
     switch (action.type) {
-        case 'ARTICLE/HIT/SYNC_CODE':
+        case 'ARTICLE/HIT/CONTENT':
+            return action._
+            break;
+        default:
+            return state
+    }
+}
+const title = (state = '', action) => {
+    switch (action.type) {
+        case 'ARTICLE/HIT/TITLE':
             return action._
             break;
         default:
@@ -53,7 +62,8 @@ const saveModalStatus = (state = false, action) => {
     }
 }
 const articleHitReducer = combineReducers({
-    hitArticle,
+    title,
+    content,
     saveModalStatus
 })
 

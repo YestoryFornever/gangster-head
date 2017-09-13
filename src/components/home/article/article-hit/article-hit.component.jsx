@@ -48,7 +48,7 @@ export default class ArticleHit extends Component{
 				<main className="article-hit-main">
 					<div id="output" className='result-pane'>
 						<ReactMarkdown
-							source={this.props.code}
+							source={this.props.content}
 							className="result"
 							renderers={
 								Object.assign({}, ReactMarkdown.renderers, {
@@ -58,7 +58,7 @@ export default class ArticleHit extends Component{
 						/>
 					</div>
 					<div id="input">
-						<CodeMirror value={this.props.code} options={options} onChange={(editor, metadata, value)=>{
+						<CodeMirror value={this.props.content} options={options} onChange={(editor, metadata, value)=>{
 							this.props.sync(value);
 						}} />
 					</div>
@@ -66,10 +66,19 @@ export default class ArticleHit extends Component{
 				<Modal
 					title="save"
 					visible={this.props.saveModalStatus}
-					onOk={e => { }}
+					onOk={e => {
+						this.props.createArticle({
+							title:this.props.title,
+							content:this.props.content
+						})
+					}}
 					onCancel={this.props.closeSaveModal}
 				>
-					<Input placeholder="title" defaultValue={"sdf"} />
+					<Input placeholder="title" 
+						value={this.props.title} 
+						onChange={e=>{
+							this.props.editTitle(e.target.value);
+						}} />
 				</Modal>
 			</div>
 		)
