@@ -9,35 +9,56 @@ import 'codemirror/mode/markdown/markdown'
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/monokai.css'
 
-import {} from 'antd'
+import { Modal } from 'antd'
 
 import CodeBlock from 'alias_utils/common/code-block/code-block.component';
 
-let updateCode = function(){
-	output = input;
-};
+import { Path } from 'alias_utils/js/lib';
+
 let options = {
 	lineNumbers: true,
 	mode: 'markdown',
 	theme: 'monokai'
 };
-const ArticleHit = ({match, code, sync}) => {
+const ArticleHit = ({ match, code, sync, saveModalStatus, openSaveModal, closeSaveModal}) => {
 	return (
 		<div className="article-hit-component">
-            <div id="output" className='result-pane'>
-				<ReactMarkdown 
-					source={code} 
-					className="result"
-					renderers={
-						Object.assign({}, ReactMarkdown.renderers, {
-							CodeBlock: CodeBlock
-						})
-					} 
-				/>
-			</div>
-			<div id="input">
-				<CodeMirror value={code} onChange={sync} options={options} />
-			</div>
+			<ul className="article-aside">
+				<li>
+					<Link to={`${Path.relative(match.url, 2)}/article-list`}>
+						<i className="fa fa-list" aria-hidden="true"></i>
+					</Link>
+				</li>
+				<li>
+					<i className="fa fa-save" aria-hidden="true" onClick={openSaveModal}></i>
+				</li>
+			</ul>
+			<main className="article-hit-main">
+				<div id="output" className='result-pane'>
+					<ReactMarkdown
+						source={code}
+						className="result"
+						renderers={
+							Object.assign({}, ReactMarkdown.renderers, {
+								CodeBlock: CodeBlock
+							})
+						}
+					/>
+				</div>
+				<div id="input">
+					<CodeMirror value={code} onChange={sync} options={options} />
+				</div>
+			</main>
+			<Modal
+				title="save"
+				visible={saveModalStatus}
+				onOk={e => { }}
+				onCancel={closeSaveModal}
+			>
+				<p>Some contents...</p>
+				<p>Some contents...</p>
+				<p>Some contents...</p>
+			</Modal>
 		</div>
 	)
 };

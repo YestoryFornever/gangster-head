@@ -1,3 +1,4 @@
+import { combineReducers } from 'redux'
 let initCode = `# Live demo
 
 Changes are automatically rendered as you type.
@@ -32,8 +33,8 @@ Read usage information and more on [GitHub](//github.com/rexxars/react-markdown)
 
 ---------------
 
-A component by [VaffelNinja](http://vaffel.ninja) / Espen Hovlandsdal`
-export default function hitArticle(state = initCode, action) {
+A component by [VaffelNinja](http://vaffel.ninja) / Espen Hovlandsdal`;
+const hitArticle = (state = initCode, action) => {
     switch (action.type) {
         case 'ARTICLE/HIT/SYNC_CODE':
             return action._
@@ -42,3 +43,19 @@ export default function hitArticle(state = initCode, action) {
             return state
     }
 }
+const saveModalStatus = (state = false, action) => {
+    switch (action.type) {
+        case 'ARTICLE/TOGGLE_SAVE_MODAL':
+            return action._
+            break;
+        default:
+            return state
+    }
+}
+const articleHitReducer = combineReducers({
+    hitArticle,
+    saveModalStatus
+})
+
+export default articleHitReducer;
+

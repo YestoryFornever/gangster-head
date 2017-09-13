@@ -1,10 +1,29 @@
+@import 'mixin';
 .article-run-component{
-    height:100%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: stretch;
-    align-items: stretch;
-    div#output.result-pane{
-        flex: 1 1 auto;
+    ul.article-aside{
+        @width:3rem;
+        height:100%;
+        width:@width;
+        float:right;
+        li{
+            display: block;
+            width:@width;
+            height:@width;
+            line-height:@width;
+            text-align:center;
+        }
+        i.fa{
+            .engrave;
+        }
+    }
+    .article-hit-main{
+        height:100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: stretch;
+        align-items: stretch;
+        div#output.result-pane{
+            flex: 1 1 auto;
+        }
     }
 }
