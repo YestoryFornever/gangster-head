@@ -2,8 +2,6 @@ import './article.less'
 import React, { Component, PropTypes } from 'react'
 import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
 
-import { history } from 'alias_utils/js/history'
-
 import { Modal } from 'antd'
 
 import ArticleList from './article-list/article-list.container'
