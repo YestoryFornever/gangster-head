@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react'
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 
 import ReactMarkdown from 'react-markdown'
-import CodeMirror from 'react-codemirror'
+import CodeMirror from 'react-codemirror2'
 import 'codemirror/mode/javascript/javascript'
 import 'codemirror/mode/markdown/markdown'
 import 'codemirror/lib/codemirror.css'
@@ -55,15 +55,9 @@ export default class ArticleHit extends Component{
 						/>
 					</div>
 					<div id="input">
-						<textarea value={this.props.code}></textarea>
-						<CodeMirror value={this.props.code} options={options} 
-							onChanges={e=>{
-								console.log('changes',e);
-							}}
-							onUpdate={e => {
-								console.log('onupdate',e);
-							}}
-							onChange={this.props.sync} />
+						<CodeMirror value={this.props.code} options={options} onChange={(editor, metadata, value)=>{
+							this.props.sync(value);
+						}} />
 					</div>
 				</main>
 				<Modal
