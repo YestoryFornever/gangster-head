@@ -4,6 +4,7 @@ import ArticleList from './article-hit.component'
 import {
 	fetchArticle,
 	fetchCreateArticle,
+	fetchUpdateArticle,
 	article_hit$title,
 	article_hit$content,
 	article$toggleSaveModal
@@ -51,7 +52,18 @@ const _d = (dispatch) => {
 					console.log('err');
 				}
 			})();
-		}
+		},
+		updateArticle: (param) => {
+			fetchUpdateArticle({
+				data: param,
+				success: (data) => {
+					console.log(data);
+					dispatch(article$toggleSaveModal(false));
+				}, error: () => {
+					console.log('err');
+				}
+			})();
+		},
 	}
 }
 export default connect(_s, _d)(ArticleList);

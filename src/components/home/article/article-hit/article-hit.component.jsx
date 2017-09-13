@@ -67,10 +67,17 @@ export default class ArticleHit extends Component{
 					title="save"
 					visible={this.props.saveModalStatus}
 					onOk={e => {
-						this.props.createArticle({
-							title:this.props.title,
-							content:this.props.content
-						})
+						if (this.props.match.params.id) {
+							this.props.createArticle({
+								title: this.props.title,
+								content: this.props.content
+							});
+						}else{
+							this.props.createArticle({
+								title: this.props.title,
+								content: this.props.content
+							});
+						}
 					}}
 					onCancel={this.props.closeSaveModal}
 				>

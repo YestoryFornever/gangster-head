@@ -31,3 +31,20 @@ export const fetchCreateArticle = (opts) => (
         });
     }
 );
+export const fetchUpdateArticle = (opts) => (
+    (dispatch) => {
+        const { data, success, error } = opts;
+        _json({
+            type: "POST",
+            url: "crud/article/update",
+            data: data,
+            success: req => {
+                success && success(req.data);
+            },
+            error: err => {
+                console.log(err);
+                error && error();
+            }
+        });
+    }
+);
