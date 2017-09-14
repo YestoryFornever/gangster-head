@@ -10,6 +10,7 @@ const Error = ({}) => {
 			<div id="f3" className="fff">f3</div>
 			<div id="f4" className="fff">f4</div>
 			<div id="f5" className="fff">f5</div>
+			<h1 className="test-text">测试用文本，words for test</h1>
 		</div>
 	)
 };
