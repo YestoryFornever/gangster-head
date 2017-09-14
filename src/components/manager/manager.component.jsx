@@ -18,8 +18,7 @@ const Topic = (xxx)=>{
 
 class Manager extends React.Component{
 	componentDidMount(){
-		console.log(loadTopic);
-		loadTopic(()=>{})
+		loadTopic(()=>{});// 貌似函数式无状态写法不用加这句
 	}
 	render(){
 		return (

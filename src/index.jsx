@@ -30,18 +30,32 @@ import Manager from './components/manager/manager.container'
  * 异步加载组件
  */
 import asyncComponent from 'alias_utils/common/async/asyncComponent'
-const asyncLogin = asyncComponent(() =>
-	System.import('./components/login/login.container.js')
-		.then(module => module.default)
-		.catch((err) => { return 404 }))
-const asyncHome = asyncComponent(() =>
-	System.import('./components/home/home.container.js')
-		.then(module => module.default)
-		.catch((err) => { return 404 }))
 const asyncError = asyncComponent(() =>
 	System.import('./components/error/error.container.js')
 		.then(module => module.default)
 		.catch((err) => { return 404 }))
+
+import Async from 'alias_utils/common/async/async.component'
+import loadLogin from 'bundle-loader?lazy!./components/login/login.container'
+const Login = (xxx) => {
+	return (
+		<Async load={loadLogin} >
+			{(Widget) => {
+				return (Widget ? <Widget {...xxx} /> : (<div>loading</div>))
+			}}
+		</Async>
+	)
+}
+import loadHome from 'bundle-loader?lazy!./components/home/home.container'
+const Home = (xxx) => {
+	return (
+		<Async load={loadHome} >
+			{(Widget) => {
+				return (Widget ? <Widget {...xxx} /> : (<div>loading</div>))
+			}}
+		</Async>
+	)
+}
 /* 
  * DevTools
  */
@@ -87,8 +101,8 @@ render(
 					<hr /> */}
 					<Switch>
 						<Route exact path="/" render={() => <Redirect to="/home" /> } />
-						<Route path="/home" component={asyncHome} />
-						<Route path="/login" component={asyncLogin} />
+						<Route path="/home" component={Home} />
+						<Route path="/login" component={Login} />
 						<Route path="/manager" render={(props) => {//此处必须把父级组件的属性传入子级组件
 								return store.getState().commonReducer.auth 
 									? ( <Manager {...props}/> ) 
