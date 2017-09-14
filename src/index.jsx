@@ -29,7 +29,7 @@ import Manager from './components/manager/manager.container'
 /**
  * 异步加载组件
  */
-import asyncComponent from 'alias_utils/js/asyncComponent'
+import asyncComponent from 'alias_utils/common/async/asyncComponent'
 const asyncLogin = asyncComponent(() =>
 	System.import('./components/login/login.container.js')
 		.then(module => module.default)
@@ -70,9 +70,9 @@ let store = createStore(
 /**
  * audio
  */
-import audio_ding from 'alias_materials/videoes/ding.mp3'
+/* import audio_ding from 'alias_materials/videoes/ding.mp3'
 import audio_du from 'alias_materials/videoes/du.mp3'
-import audio_diu from 'alias_materials/videoes/diu.mp3'
+import audio_diu from 'alias_materials/videoes/diu.mp3' */
 
 render(
 	<Provider store={store}>
@@ -90,7 +90,7 @@ render(
 						<Route path="/home" component={asyncHome} />
 						<Route path="/login" component={asyncLogin} />
 						<Route path="/manager" render={(props) => {//此处必须把父级组件的属性传入子级组件
-								return store.getState().loginReducer.auth 
+								return store.getState().commonReducer.auth 
 									? ( <Manager {...props}/> ) 
 									: ( <Redirect to="/" /> )
 							}
@@ -100,9 +100,9 @@ render(
 				</div>
 			</Router>
 			{/* <DevTools /> */}
-			<audio id="audio_ding" src={audio_ding} ></audio>
+			{/* <audio id="audio_ding" src={audio_ding} ></audio>
 			<audio id="audio_du" src={audio_du} ></audio>
-			<audio id="audio_diu" src={audio_diu} ></audio>
+			<audio id="audio_diu" src={audio_diu} ></audio> */}
 		</div>
 	</Provider>,
 	document.getElementById('app')
