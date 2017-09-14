@@ -3,9 +3,24 @@ import React, { Component, PropTypes } from 'react'
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 
 import { Button } from 'antd'
-import Topic from './topic.component'
+import Async from 'alias_utils/common/async/async.component'
+import loadTopic from 'bundle-loader?lazy!./topic.component'
+
+const Topic = (xxx)=>{
+	return (
+		<Async load={loadTopic} >
+			{(Widget) => {
+				return (Widget ? <Widget {...xxx}/>:(<div>loading</div>))
+			}}
+		</Async>
+	)
+}
 
 class Manager extends React.Component{
+	componentDidMount(){
+		console.log(loadTopic);
+		loadTopic(()=>{})
+	}
 	render(){
 		return (
 			<div>
