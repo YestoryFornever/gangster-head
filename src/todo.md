@@ -3,12 +3,12 @@
  * 路由缓存
  * error页面
  * 过场动画（interlude）[react-addons-css-transition-group][ReactCSSTransitionGroup]
- * code split 升级 bundle-loader
  * 
  * favicon 404
  * redux-gen - 生成器
  * react-redux-form - 表单提交
  *
+ * #code split 升级 bundle-loader
  * #富文本编辑器
  * #markdown
  * #button audio
