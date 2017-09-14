@@ -20,19 +20,21 @@ const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 			</section>
 			<aside className="home-aside">
 				<header>
-					<Button type='primary' onClick={e => {
-						e.preventDefault();
-						onLogin(true);
-					}}>登录</Button>
-					<Button type='primary' onClick={e => {
-						e.preventDefault();
-						onLogout(false);
-					}}>注销</Button>
+					{
+						authenticated?
+							<Button type='primary' onClick={e => {
+								e.preventDefault();
+								onLogout(false);
+							}}>注销</Button>:
+							<Button type='primary' onClick={e => {
+								e.preventDefault();
+								onLogin(true);
+							}}>登录</Button>
+					}
 				</header>
-				<Nav match={match} />
+				{/* <Nav match={match} /> */}
 			</aside>
 			{/* <Wheel /> */}
-			{authenticated && (<span>已登录</span>)}
 		</div>
 	)
 };

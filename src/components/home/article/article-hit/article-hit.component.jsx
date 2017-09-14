@@ -58,7 +58,7 @@ export default class ArticleHit extends Component{
 						/>
 					</div>
 					<div id="input">
-						<CodeMirror value={this.props.content} options={options} onChange={(editor, metadata, value)=>{
+						<CodeMirror className="code-mirror" value={this.props.content} options={options} onChange={(editor, metadata, value)=>{
 							this.props.sync(value);
 						}} />
 					</div>
