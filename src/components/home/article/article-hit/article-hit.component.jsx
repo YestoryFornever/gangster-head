@@ -68,7 +68,8 @@ export default class ArticleHit extends Component{
 					visible={this.props.saveModalStatus}
 					onOk={e => {
 						if (this.props.match.params.id) {
-							this.props.createArticle({
+							this.props.updateArticle({
+								id:this.props.match.params.id,
 								title: this.props.title,
 								content: this.props.content
 							});

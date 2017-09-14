@@ -36,8 +36,11 @@ export const fetchUpdateArticle = (opts) => (
         const { data, success, error } = opts;
         _json({
             type: "POST",
-            url: "crud/article/update",
-            data: data,
+            url: "crud/article/update/"+data.id,
+            data: {
+                title:data.title,
+                content:data.content
+            },
             success: req => {
                 success && success(req.data);
             },
