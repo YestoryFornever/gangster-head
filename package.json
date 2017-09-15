@@ -57,6 +57,7 @@
     "history": "^4.7.2",
     "jquery": "^3.2.1",
     "react": "^15.4.2",
+    "react-addons-css-transition-group": "^15.6.0",
     "react-codemirror": "^1.0.0",
     "react-codemirror2": "^1.0.0",
     "react-dom": "^15.4.2",
