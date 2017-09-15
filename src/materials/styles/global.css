@@ -70,3 +70,13 @@ blockquote {
     padding-left: 3em;
     border-left: 0.5em #eee solid;
 }
+
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 2s ease-in;
+}

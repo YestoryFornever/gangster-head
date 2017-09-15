@@ -37,8 +37,8 @@ const AnimationExample = () => (
 				<div style={styles.content}>
 					<ReactCSSTransitionGroup
 						transitionName="fade"
-						transitionEnterTimeout={300}
-						transitionLeaveTimeout={300}
+						transitionEnterTimeout={3000}
+						transitionLeaveTimeout={3000}
 					>
 						{/* no different than other usage of
 							ReactCSSTransitionGroup, just make
