@@ -18,7 +18,7 @@ const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 					<Redirect to={`${match.url}/article`} />
 				)} />
 			</section>
-			<aside className="home-aside">
+			{/* <aside className="home-aside">
 				<header>
 					{
 						authenticated?
@@ -32,8 +32,7 @@ const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 							}}>登录</Button>
 					}
 				</header>
-				{/* <Nav match={match} /> */}
-			</aside>
+			</aside> */}
 			<Wheel />
 		</div>
 	)

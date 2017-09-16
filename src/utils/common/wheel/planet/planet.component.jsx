@@ -1,6 +1,10 @@
 import './planet.less'
 import React, { Component, PropTypes } from 'react'
-const Planet = ({wheeling, deg, wheelingPause, wheelingRun, skew, icon, onPlanetClick}) => (
+
+import {Tooltip} from 'antd'
+
+const Planet = ({wheeling, deg, wheelingPause, wheelingRun, skew, tooltip, icon, onPlanetClick}) => (
+    <Tooltip placement="right" title={tooltip}>
     < div className={"planet " + (wheeling === true ? "" : "on-pause")}
         style={{
             transform: `rotate(${deg + skew + "deg"}) 
@@ -16,5 +20,6 @@ const Planet = ({wheeling, deg, wheelingPause, wheelingRun, skew, icon, onPlanet
         onClick={onPlanetClick}>
         <i className={"fa "+icon} aria-hidden="true"></i>
     </div >
+    </Tooltip>
 )
 export default Planet

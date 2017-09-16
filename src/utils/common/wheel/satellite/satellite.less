@@ -1,5 +1,5 @@
 @import 'variable';
-@keyframes planet-spin {
+@keyframes satellite-spin {
     from { 
         transform: 
             rotate(0turn) 
@@ -13,28 +13,28 @@
             rotate(0turn)
     }
 }
-.planet{
+.satellite{
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -2rem;
-    margin-left: -2rem;
-    width: 4rem;
-    height: 4rem;
-    line-height: 4rem;
-    border-radius: 2rem;
+    margin-top: -.4rem;
+    margin-left: -.4rem;
+    width: .8rem;
+    height: .8rem;
+    line-height: .8rem;
+    border-radius: .4rem;
     background: #fafafa;
     border:1px solid @line-color;
     text-align: center;
-    color: @line-color;
+    color: #ccc;
     transition:all 500ms;
-    // animation: planet-spin 6s linear infinite;
+    // animation: satellite-spin 6s linear infinite;
     /* img{
         width:100%;
         height:100%;
         border-radius: 2rem;
     } */
 }
-.planet.on-pause{
+.satellite.on-pause{
     animation-play-state: paused;
 }

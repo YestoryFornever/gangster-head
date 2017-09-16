@@ -4,6 +4,7 @@ import React, { Component, PropTypes } from 'react'
 import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
 
 import Planet from './planet/planet.component'
+import Satellite from './satellite/satellite.component'
 
 import { history } from 'alias_utils/js/history'
 
@@ -26,6 +27,37 @@ const Wheel = ({ match, wheeling, deg, wheelingPause, wheelingRun, setWheelDeg, 
 					wheelingPause={wheelingPause}
 					wheelingRun={wheelingRun}
 					skew={-15} 
+					tooltip={"blog列表"}
+					icon={"fa-list"}
+					onPlanetClick={e=>{
+						history.push('/home/article/article-list')
+					}}/>
+				
+				<Satellite wheeling={wheeling} deg={deg}
+					wheelingPause={wheelingPause}
+					wheelingRun={wheelingRun}
+					skew={45} />
+
+				<Planet wheeling={wheeling} deg={deg} 
+					wheelingPause={wheelingPause} 
+					wheelingRun={wheelingRun} 
+					skew={105}
+					tooltip={"新增blog"}
+					icon={"fa-plus-circle"}
+					onPlanetClick={e=>{
+						history.push('/home/article/article-hit')
+					}}/>
+
+				<Satellite wheeling={wheeling} deg={deg}
+					wheelingPause={wheelingPause}
+					wheelingRun={wheelingRun}
+					skew={165} />
+
+				<Planet wheeling={wheeling} deg={deg}
+					wheelingPause={wheelingPause}
+					wheelingRun={wheelingRun}
+					skew={225} 
+					tooltip={authenticated?"注销":"登录"}
 					icon={authenticated ? "fa-sign-out" : "fa-sign-in"}
 					onPlanetClick={e=>{
 						if (authenticated){
@@ -34,18 +66,11 @@ const Wheel = ({ match, wheeling, deg, wheelingPause, wheelingRun, setWheelDeg, 
 							onLogin()
 						}
 					}}/>
-
-				<Planet wheeling={wheeling} deg={deg}
+				
+				<Satellite wheeling={wheeling} deg={deg}
 					wheelingPause={wheelingPause}
 					wheelingRun={wheelingRun}
-					skew={45} 
-					icon={"fa-sign-in"}/>
-
-				<Planet wheeling={wheeling} deg={deg} 
-					wheelingPause={wheelingPause} 
-					wheelingRun={wheelingRun} 
-					skew={105}
-					icon={"fa-sign-in"}/>
+					skew={285} />
 			</div>
 		</div>
 	)
