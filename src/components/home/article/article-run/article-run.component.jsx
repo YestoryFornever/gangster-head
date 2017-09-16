@@ -29,7 +29,7 @@ export default class ArticleRun extends Component{
 						</Link>
 					</li>
 					<li>
-						<Link to={`${Path.relative(this.props.match.url, 2)}/article-hit`}>
+						<Link to={`${Path.relative(this.props.match.url, 2)}/article-hit/${this.props.match.params.id}`}>
 							<i className="fa fa-pencil" aria-hidden="true"></i>
 						</Link>
 					</li>

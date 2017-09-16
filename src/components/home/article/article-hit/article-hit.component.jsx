@@ -46,10 +46,10 @@ export default class ArticleHit extends Component{
 					</li>
 				</ul>
 				<main className="article-hit-main">
-					<div id="output" className='result-pane'>
+					<div className='output'>
 						<ReactMarkdown
 							source={this.props.content}
-							className="result"
+							className="markdown-output"
 							renderers={
 								Object.assign({}, ReactMarkdown.renderers, {
 									CodeBlock: CodeBlock
@@ -57,8 +57,11 @@ export default class ArticleHit extends Component{
 							}
 						/>
 					</div>
-					<div id="input">
-						<CodeMirror className="code-mirror" value={this.props.content} options={options} onChange={(editor, metadata, value)=>{
+					<div className="input">
+						<CodeMirror className="code-mirror" 
+							value={this.props.content} 
+							options={options} 
+							onChange={(editor, metadata, value)=>{
 							this.props.sync(value);
 						}} />
 					</div>

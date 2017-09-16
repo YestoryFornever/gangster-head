@@ -26,22 +26,18 @@ export default class ArticleList extends Component{
 					</li>
 				</ul>
 				<main className="article-list-main">
-					<Timeline>
+					<ul className="article-list-ul">
 						{this.props.articles.map((item, index) =>
-							<Timeline.Item color="#28c" key={index}>
+							<li key={index}>
 								<Link to={`${Path.relative(this.props.match.url, 1)}/article-run/${item._id}`}>
 									{item.title}<br/>{item.create_time}
 								</Link>
 								<Link to={`${Path.relative(this.props.match.url, 1)}/article-hit/${item._id}`}>
 									edit
-							</Link>
-							</Timeline.Item>)
+								</Link>
+							</li>)
 						}
-					</Timeline>
-					{/* <Button type="primary" onClick={e => {
-						e.preventDefault();
-						history.push(`${Path.relative(this.props.match.url, 1)}/article-hit`);
-					}} >添加</Button> */}
+					</ul>
 				</main>
 			</div>
 		)
