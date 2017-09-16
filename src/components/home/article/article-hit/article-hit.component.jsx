@@ -18,7 +18,9 @@ import { Path } from 'alias_utils/js/lib';
 let options = {
 	lineNumbers: true,
 	mode: 'markdown',
-	theme: 'monokai'
+	theme: 'monokai',
+	scrollbarStyle: 'null',
+	lineWrapping: true
 };
 export default class ArticleHit extends Component{
 	constructor(props) {
@@ -62,8 +64,14 @@ export default class ArticleHit extends Component{
 							value={this.props.content} 
 							options={options} 
 							onChange={(editor, metadata, value)=>{
-							this.props.sync(value);
-						}} />
+								this.props.sync(value);
+							}}
+							onBeforeChange={(editor,obj)=>{
+								/* 这句不能去掉，保证在当前页input时，
+								 * 光标不会跳转到其他行
+								 */
+							}}
+						/>
 					</div>
 				</main>
 				<Modal
