@@ -35,10 +35,10 @@ export default class ArticleRun extends Component{
 					</li>
 				</ul>
 				<main className="article-run-main">
-					<div id="output" className='result-pane'>
+					<div className='output'>
 						<ReactMarkdown
 							source={this.props.code}
-							className="result"
+							className="markdown-output"
 							renderers={
 								Object.assign({}, ReactMarkdown.renderers, {
 									CodeBlock: CodeBlock

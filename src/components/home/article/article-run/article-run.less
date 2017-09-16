@@ -1,29 +1,35 @@
 @import 'mixin';
 .article-run-component{
-    ul.article-aside{
-        @width:3rem;
-        height:100%;
-        width:@width;
-        float:right;
-        li{
-            display: block;
-            width:@width;
-            height:@width;
-            line-height:@width;
-            text-align:center;
-        }
-        i.fa{
-            .engrave;
-        }
-    }
-    .article-hit-main{
-        height:100%;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: stretch;
-        align-items: stretch;
-        div#output.result-pane{
-            flex: 1 1 auto;
-        }
-    }
+	height:100%;
+	// background:rgba(224,222,221,1);
+	display: flex;
+	flex-flow: row-reverse nowrap;
+	justify-content: stretch;
+	align-items: stretch;
+	@width:2.4rem;
+	ul.article-aside{
+		height:100%;
+		width:@width;
+		float:right;
+		li{
+			display: block;
+			width:@width;
+			height:@width;
+			line-height:@width;
+			text-align:center;
+		}
+		i.fa{
+			.engrave;
+		}
+	}
+	.article-run-main{
+		background:rgba(250,250,250,.1);
+		box-shadow:6px 0 6px rgba(0, 0, 0, 0.1);
+		width:54rem;
+		overflow-y:auto;
+		padding:2em;
+		.markdown-output{
+			// flex: 1 1 auto;
+		}
+	}
 }

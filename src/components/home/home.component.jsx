@@ -34,7 +34,7 @@ const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 				</header>
 				{/* <Nav match={match} /> */}
 			</aside>
-			{/* <Wheel /> */}
+			<Wheel />
 		</div>
 	)
 };

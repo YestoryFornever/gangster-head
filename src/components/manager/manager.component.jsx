@@ -22,7 +22,7 @@ class Manager extends React.Component{
 	}
 	render(){
 		return (
-			<div>
+			<div className="manager-component">
 				{this.props.authenticated && (<Button type='primary' onClick={e => {
 					e.preventDefault();
 					this.props.onLogout(false);
