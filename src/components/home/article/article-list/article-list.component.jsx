@@ -29,11 +29,11 @@ export default class ArticleList extends Component{
 					<ul className="article-list-ul">
 						{this.props.articles.map((item, index) =>
 							<li key={index}>
-								<Link to={`${Path.relative(this.props.match.url, 1)}/article-run/${item._id}`}>
-									{item.title}<br/>{item.create_time}
-								</Link>
 								<Link to={`${Path.relative(this.props.match.url, 1)}/article-hit/${item._id}`}>
-									edit
+									<i className="fa fa-pencil" aria-hidden="true"></i>
+								</Link>
+								<Link to={`${Path.relative(this.props.match.url, 1)}/article-run/${item._id}`}>
+									{item.title} {new Date(item.create_time).getDate()}
 								</Link>
 							</li>
 						)}
