@@ -94,11 +94,6 @@ export default class ArticleHit extends Component{
 							onChange={(editor, metadata, value)=>{
 								this.props.sync(value);
 							}}
-							onBeforeChange={(editor,obj)=>{
-								/* 这句不能去掉，保证在当前页input时，
-								 * 光标不会跳转到其他行
-								 */
-							}}
 						/>
 					</div>
 				</main>
