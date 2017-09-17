@@ -4,6 +4,7 @@ import {
 	BrowserRouter as Router,
 	Route,
 	Link,
+	Switch,
 	Redirect
 } from 'react-router-dom'
 
@@ -18,44 +19,46 @@ import {
   transition: opacity 250ms ease-in;
 }
 */
-
+import './animation.less'
 const AnimationExample = () => (
 	<Router>
-		<Route render={({ location }) => (
-			<div style={styles.fill}>
-				<Route exact path="/" render={() => (
-					<Redirect to="/10/90/50" />
-				)} />
+		<Route render={({ location }) => {
+			return (
+				<div style={styles.fill}>
+					<Route exact path="/hh" render={() => {
+						return <Redirect to="/10/90/50" />
+					}} />
 
-				<ul style={styles.nav}>
-					<NavLink to="/10/90/50">Red</NavLink>
-					<NavLink to="/120/100/40">Green</NavLink>
-					<NavLink to="/200/100/40">Blue</NavLink>
-					<NavLink to="/310/100/50">Pink</NavLink>
-				</ul>
+					<ul style={styles.nav}>
+						<NavLink to="/10/90/50">Red</NavLink>
+						<NavLink to="/120/100/40">Green</NavLink>
+						<NavLink to="/200/100/40">Blue</NavLink>
+						<NavLink to="/310/100/50">Pink</NavLink>
+					</ul>
 
-				<div style={styles.content}>
-					<ReactCSSTransitionGroup
-						transitionName="fade"
-						transitionEnterTimeout={3000}
-						transitionLeaveTimeout={3000}
-					>
-						{/* no different than other usage of
-							ReactCSSTransitionGroup, just make
-							sure to pass `location` to `Route`
-							so it can match the old location
-							as it animates out
-						*/}
-						<Route
-							location={location}
-							key={location.key}
-							path="/:h/:s/:l"
-							component={HSL}
-						/>
-					</ReactCSSTransitionGroup>
+					<div style={styles.content}>
+						<ReactCSSTransitionGroup
+							transitionName="fade"
+							transitionEnterTimeout={0}
+							transitionLeaveTimeout={0}
+						>
+							{/* no different than other usage of
+								ReactCSSTransitionGroup, just make
+								sure to pass `location` to `Route`
+								so it can match the old location
+								as it animates out
+							*/}
+							<Route
+								location={location}
+								key={location.key}
+								path="/:h/:s/:l"
+								component={HSL}
+							/>
+						</ReactCSSTransitionGroup>
+					</div>
 				</div>
-			</div>
-		)} />
+			)
+		}} />
 	</Router>
 )
 
