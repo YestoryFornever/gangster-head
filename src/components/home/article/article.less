@@ -1,4 +1,19 @@
 @import 'mixin';
 .article-component{
     height:100%;
+
+    .cartoon-fade-enter {
+        opacity: 0.01;
+    }
+    .cartoon-fade-enter.cartoon-fade-enter-active {
+        opacity: 1;
+        transition: opacity 500ms ease-in;
+    }
+    .cartoon-fade-leave {
+        opacity: 1;
+    }
+    .cartoon-fade-leave.cartoon-fade-leave-active {
+        opacity: 0.01;
+        transition: opacity 300ms ease-in;
+    }
 }
