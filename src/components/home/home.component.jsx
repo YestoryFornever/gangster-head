@@ -33,7 +33,9 @@ const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 					}
 				</header>
 			</aside> */}
-			<Wheel />
+			<nav className="nav-wheel">
+				<Wheel />
+			</nav>
 		</div>
 	)
 };

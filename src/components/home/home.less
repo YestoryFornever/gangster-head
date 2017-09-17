@@ -3,12 +3,18 @@
 
 .home-component{
     .overspread;
-}
-@aside-width:30rem;
-aside.home-aside{
-    .pos(auto,auto,0,auto);
-    // width:@aside-width;
-}
-section.home-section{
-    .pos(0,0,0,0);
+    overflow:hidden;
+    @aside-width:30rem;
+    aside.home-aside{
+        .pos(auto,auto,0,auto);
+        // width:@aside-width;
+    }
+    section.home-section{
+        .pos(0,0,0,0);
+    }
+    nav.nav-wheel{
+        position: absolute;
+        bottom:-6.4rem;
+        left:-6.4rem;
+    }
 }
