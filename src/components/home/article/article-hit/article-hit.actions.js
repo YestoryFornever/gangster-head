@@ -4,6 +4,9 @@
 export const article_hit$content = ( _ ) => {
     return { type: 'ARTICLE/HIT/CONTENT', _ }
 }
+export const article_hit$source = ( _ ) => {
+    return { type: 'ARTICLE/HIT/SOURCE', _ }
+}
 export const article_hit$title = (_) => {
     return { type: 'ARTICLE/HIT/TITLE', _ }
 }

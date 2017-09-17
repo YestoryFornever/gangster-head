@@ -43,6 +43,15 @@ const content = (state = '', action) => {
             return state
     }
 }
+const source = (state = '', action) => {
+    switch (action.type) {
+        case 'ARTICLE/HIT/SOURCE':
+            return action._
+            break;
+        default:
+            return state
+    }
+}
 const title = (state = '', action) => {
     switch (action.type) {
         case 'ARTICLE/HIT/TITLE':
@@ -64,6 +73,7 @@ const saveModalStatus = (state = false, action) => {
 const articleHitReducer = combineReducers({
     title,
     content,
+    source,
     saveModalStatus
 })
 

@@ -48,6 +48,7 @@ export default class ArticleHit extends Component{
 			}else{
 				this.props.sync("");
 				this.props.editTitle("");
+				this.props.dispatchSource("");
 			}
 		}
 	}
@@ -61,6 +62,7 @@ export default class ArticleHit extends Component{
 		// console.log('will unmount')
 		this.props.sync("");
 		this.props.editTitle("");
+		this.props.dispatchSource("");
 	}
 	render(){
 		return (
@@ -89,7 +91,7 @@ export default class ArticleHit extends Component{
 					</div>
 					<div className="input">
 						<CodeMirror className="code-mirror" 
-							value={this.props.content} 
+							value={this.props.source} 
 							options={options} 
 							onChange={(editor, metadata, value)=>{
 								this.props.sync(value);
