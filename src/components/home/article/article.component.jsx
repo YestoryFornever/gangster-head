@@ -15,7 +15,7 @@ const Home = ({ match, saveModalStatus, openSaveModal, closeSaveModal}) => {
 					)} />
 					<ReactCSSTransitionGroup
 						transitionName="cartoon-fade" 
-						transitionEnterTimeout={2000}
+						transitionEnterTimeout={500}
 						transitionLeaveTimeout={0}
 						>
 						<Route location={location}
@@ -25,7 +25,7 @@ const Home = ({ match, saveModalStatus, openSaveModal, closeSaveModal}) => {
 					</ReactCSSTransitionGroup>
 					<ReactCSSTransitionGroup
 						transitionName="cartoon-fade" 
-						transitionEnterTimeout={2000}
+						transitionEnterTimeout={500}
 						transitionLeaveTimeout={0}
 						>
 						{/* 顺序很重要，自上而下匹配 */}
@@ -36,7 +36,7 @@ const Home = ({ match, saveModalStatus, openSaveModal, closeSaveModal}) => {
 					</ReactCSSTransitionGroup>
 					<ReactCSSTransitionGroup
 						transitionName="cartoon-fade" 
-						transitionEnterTimeout={2000}
+						transitionEnterTimeout={500}
 						transitionLeaveTimeout={0}
 						>
 						<Route location={location}
