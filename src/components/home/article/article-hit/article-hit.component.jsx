@@ -25,14 +25,42 @@ let options = {
 export default class ArticleHit extends Component{
 	constructor(props) {
 		super(props);
+		// console.log('constructor')
 	}
+	/* componentWillMount(){
+		console.log('will mount')
+	} */
 	componentDidMount() {
-		/* 编辑时 */
-		if (this.props.match.params.id){
+		// console.log('did mount')
+		if(this.props.match.params.id){
 			this.props.getArticle({
 				id: this.props.match.params.id
 			});
 		}
+	}
+	componentWillReceiveProps(nextProps){
+		// console.log('receive')
+		if (this.props.match.params.id!==nextProps.match.params.id){
+			if(nextProps.match.params.id){
+				this.props.getArticle({
+					id: nextProps.match.params.id
+				});
+			}else{
+				this.props.sync("");
+				this.props.editTitle("");
+			}
+		}
+	}
+	/* componentWillUpdate(){
+		console.log('will update')
+	}
+	componentDidUpdate(){
+		console.log('did update')
+	} */
+	componentWillUnmount(){
+		// console.log('will unmount')
+		this.props.sync("");
+		this.props.editTitle("");
 	}
 	render(){
 		return (

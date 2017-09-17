@@ -21,7 +21,7 @@ export default class ArticleList extends Component{
 				<ul className="article-aside">
 					<li>
 						<Link to={`${Path.relative(this.props.match.url, 1)}/article-hit`}>
-							<i className="fa fa-pencil" aria-hidden="true"></i>
+							<i className="fa fa-plus-circle" aria-hidden="true"></i>
 						</Link>
 					</li>
 				</ul>
