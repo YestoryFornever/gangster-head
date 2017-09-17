@@ -2,6 +2,7 @@ import './article-list.less'
 import React, { Component, PropTypes } from 'react'
 import { Redirect, Link } from 'react-router-dom'
 
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import { history } from 'alias_utils/js/history'
 
 import { Button, Timeline } from 'antd'
@@ -26,7 +27,13 @@ export default class ArticleList extends Component{
 					</li>
 				</ul>
 				<main className="article-list-main">
-					<ul className="article-list-ul">
+					<ReactCSSTransitionGroup
+						transitionName="example" 
+						transitionEnterTimeout={200}
+						transitionLeaveTimeout={200}
+						className='article-list-ul'
+						component='ul'
+						>
 						{this.props.articles.map((item, index) =>
 							<li key={index}>
 								<Link to={`${Path.relative(this.props.match.url, 1)}/article-run/${item._id}`}>
@@ -35,9 +42,9 @@ export default class ArticleList extends Component{
 								<Link to={`${Path.relative(this.props.match.url, 1)}/article-hit/${item._id}`}>
 									edit
 								</Link>
-							</li>)
-						}
-					</ul>
+							</li>
+						)}
+					</ReactCSSTransitionGroup>
 				</main>
 			</div>
 		)
