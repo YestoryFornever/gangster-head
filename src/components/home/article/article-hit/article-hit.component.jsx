@@ -46,8 +46,8 @@ export default class ArticleHit extends Component{
 					id: nextProps.match.params.id
 				});
 			}else{
-				this.props.sync("");
-				this.props.editTitle("");
+				this.props.dispatchContent("");
+				this.props.dispatchTitle("");
 				this.props.dispatchSource("");
 			}
 		}
@@ -60,8 +60,8 @@ export default class ArticleHit extends Component{
 	} */
 	componentWillUnmount(){
 		// console.log('will unmount')
-		this.props.sync("");
-		this.props.editTitle("");
+		this.props.dispatchContent("");
+		this.props.dispatchTitle("");
 		this.props.dispatchSource("");
 	}
 	render(){
@@ -94,7 +94,7 @@ export default class ArticleHit extends Component{
 							value={this.props.source} 
 							options={options} 
 							onChange={(editor, metadata, value)=>{
-								this.props.sync(value);
+								this.props.dispatchContent(value);
 							}}
 						/>
 					</div>
@@ -121,7 +121,7 @@ export default class ArticleHit extends Component{
 					<Input placeholder="title" 
 						value={this.props.title} 
 						onChange={e=>{
-							this.props.editTitle(e.target.value);
+							this.props.dispatchTitle(e.target.value);
 						}} />
 				</Modal>
 			</div>

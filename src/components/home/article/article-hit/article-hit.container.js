@@ -21,10 +21,10 @@ const _s = (state) => {
 }
 const _d = (dispatch) => {
 	return {
-		sync: (content)=>{
+		dispatchContent: (content)=>{
 			dispatch(article_hit$content(content))
 		},
-		editTitle: (text)=>{
+		dispatchTitle: (text)=>{
 			dispatch(article_hit$title(text))
 		},
 		dispatchSource: (v)=>{
