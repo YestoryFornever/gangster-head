@@ -26,6 +26,7 @@ import { ConnectedRouter as Router, routerMiddleware, push } from 'react-router-
 // import Home from './components/home/home.container'
 import Manager from './components/manager/manager.container'
 // import Error from './components/error/error.container'
+import Loading from 'alias_utils/common/loading/loading.component'
 /**
  * 异步加载组件
  */
@@ -41,7 +42,7 @@ const Login = (xxx) => {
 	return (
 		<Async load={loadLogin} >
 			{(Widget) => {
-				return (Widget ? <Widget {...xxx} /> : (<div>loading</div>))
+				return (Widget ? <Widget {...xxx} /> : (<Loading></Loading>))
 			}}
 		</Async>
 	)
@@ -51,7 +52,7 @@ const Home = (xxx) => {
 	return (
 		<Async load={loadHome} >
 			{(Widget) => {
-				return (Widget ? <Widget {...xxx} /> : (<div>loading</div>))
+				return (Widget ? <Widget {...xxx} /> : (<Loading></Loading>))
 			}}
 		</Async>
 	)
