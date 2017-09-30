@@ -11,6 +11,8 @@ import {
 	article$toggleSaveModal
 } from 'alias_utils/js/actions'
 
+import { history } from 'alias_utils/js/history'
+
 const _s = (state) => {
 	return {
 		title: state.homeReducer.articleReducer.articleHitReducer.title,
@@ -54,6 +56,7 @@ const _d = (dispatch) => {
 				success: (data) => {
 					console.log(data);
 					dispatch(article$toggleSaveModal(false));
+					history.push('/home/article/article-list');
 				}, error: () => {
 					console.log('err');
 				}
@@ -65,6 +68,7 @@ const _d = (dispatch) => {
 				success: (data) => {
 					console.log(data);
 					dispatch(article$toggleSaveModal(false));
+					history.push('/home/article/article-list');
 				}, error: () => {
 					console.log('err');
 				}

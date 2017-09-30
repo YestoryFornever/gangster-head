@@ -6,7 +6,12 @@ import { history } from 'alias_utils/js/history'
 
 import { Button, Timeline } from 'antd'
 
-import { Path } from 'alias_utils/js/lib';
+import { Path, DateTime } from 'alias_utils/js/lib';
+
+let calcDate = (d)=>{
+	// return "周" + "日一二三四五六".charAt(new Date(d).getDay());
+	return DateTime.dateformat(new Date(d),'yyyy-MM-dd h:m:s')
+}
 
 export default class ArticleList extends Component{
 	constructor(props){
@@ -29,12 +34,21 @@ export default class ArticleList extends Component{
 					<ul className="article-list-ul">
 						{this.props.articles.map((item, index) =>
 							<li key={index}>
-								<Link to={`${Path.relative(this.props.match.url, 1)}/article-hit/${item._id}`}>
+								<Link className="article-title" to={`${Path.relative(this.props.match.url, 1)}/article-run/${item._id}`}>
+									{item.title}
+								</Link>
+								<span className="article-del">
+									<i className="fa fa-trash" aria-hidden="true"
+									onClick={e=>{
+										this.props.deleteArticle({
+											id:item._id
+										});
+									}}></i>
+								</span>
+								<Link className="article-edit" to={`${Path.relative(this.props.match.url, 1)}/article-hit/${item._id}`}>
 									<i className="fa fa-pencil" aria-hidden="true"></i>
 								</Link>
-								<Link to={`${Path.relative(this.props.match.url, 1)}/article-run/${item._id}`}>
-									{item.title} {new Date(item.create_time).getDate()}
-								</Link>
+								<div className="article-date">{calcDate(item.create_time)}</div>
 							</li>
 						)}
 					</ul>

@@ -25,3 +25,20 @@ export const fetchArticleList = (opts) => (
         });
     }
 );
+export const fetchDeleteArticle = (opts) => (
+    (dispatch) => {
+        const { data, success, error } = opts;
+        _json({
+            type: "GET",
+            url: "crud/article/delete/"+data.id,
+            data: data,
+            success: req => {
+                success && success(req.data);
+            },
+            error: err => {
+                console.log(err);
+                error && error();
+            }
+        });
+    }
+);

@@ -9,7 +9,7 @@ import 'codemirror/mode/markdown/markdown'
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/monokai.css'
 
-import { Modal, Input } from 'antd'
+import { Modal, Input, message } from 'antd'
 
 import CodeBlock from 'alias_utils/common/code-block/code-block.component';
 
@@ -103,6 +103,10 @@ export default class ArticleHit extends Component{
 					title="save"
 					visible={this.props.saveModalStatus}
 					onOk={e => {
+						if(!this.props.title){
+							message.error('木有【标题】不让存');
+							return false;
+						}
 						if (this.props.match.params.id) {
 							this.props.updateArticle({
 								id:this.props.match.params.id,
