@@ -16,7 +16,6 @@ const Wheel = ({ match, wheeling, deg, wheelingPause, wheelingRun, setWheelDeg, 
 				e.preventDefault();
 				e.stopPropagation();
 				setWheelDeg(e.deltaY>0);
-				document.getElementById('audio_diu').play();
 			}
 		}>
 			<div className="star-system" >
