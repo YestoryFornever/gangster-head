@@ -1,13 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import './error.less'
-
+import Loading from 'alias_utils/common/loading/loading.component';
 // import Animation from 'alias_utils/demo/animation'
 
 const Error = ({}) => {
 	return (
 		<div className="f-container">
-			404
+			<Loading></Loading>
 			{/* <Animation /> */}
 			{/* <div id="f1" className="fff">f1</div>
 			<div id="f2" className="fff">f2</div>
