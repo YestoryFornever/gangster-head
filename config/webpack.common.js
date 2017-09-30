@@ -42,6 +42,7 @@ module.exports = (opt) => {
 		},
 		output: {
 			path: helpers.root('../gangster-butt/public'),//输出文件目录（__dirname指的是当前目录）
+			publicPath:'/',
 			// publicPath: 'http://127.0.0.1:9999/',
 			filename: '[name].[hash].bundle.js',//打包后文件名对应entry中的key名:e.g. bundle
 			chunkFilename: '[name].[chunkhash].chunk.js'

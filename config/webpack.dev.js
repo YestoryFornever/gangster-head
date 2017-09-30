@@ -19,11 +19,11 @@ const HMR = helpers.hasProcessFlag('hot');
 const METADATA = webpackMerge(commonConfig({
 	env: ENV
 }).metadata, {
-		host: HOST,
-		port: PORT,
-		ENV: ENV,
-		HMR: HMR
-	});
+	host: HOST,
+	port: PORT,
+	ENV: ENV,
+	HMR: HMR
+});
 
 module.exports = (opt) => {
 	return webpackMerge(
