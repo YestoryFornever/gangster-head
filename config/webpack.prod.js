@@ -19,11 +19,11 @@ const PORT = process.env.PORT || 8080;
 const METADATA = webpackMerge(commonConfig({
 	env: ENV
 }).metadata, {
-		host: HOST,
-		port: PORT,
-		ENV: ENV,
-		HMR: false
-	});
+	host: HOST,
+	port: PORT,
+	ENV: ENV,
+	HMR: false
+});
 
 module.exports = (opt) => {
 	isProd = options.env === 'production';
