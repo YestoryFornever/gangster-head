@@ -71,59 +71,55 @@ module.exports = (opt) => {
 				},
 				{
 					test: /\.css$/,
-					use: ExtractTextPlugin.extract({
-						fallback: "style-loader",
-						use:[
-							{
-								loader:'css-loader',
-								options: {
-									modules:false,
-								}
-							},
-							{
-								loader: 'postcss-loader',
-								options: {
-									browsers: ["last 2 version"]
-								}
+					use:[
+						'style-loader',
+						{
+							loader:'css-loader',
+							options: {
+								modules:false,
 							}
-						],
-					})
+						},
+						{
+							loader: 'postcss-loader',
+							options: {
+								browsers: ["last 2 version"]
+							}
+						}
+					],
 					//include: helpers.root('src')//白名单
 				},
 				{
 					test: /\.less$/,
-					use: ExtractTextPlugin.extract({
-						fallback: "style-loader",
-						use: [
-							{
-								loader:'css-loader',
-								options: {
-									modules:false,
-									/* alias: {// 未成功
-										alias_materials:helpers.root('src/materials')
-									} */
-								}
-							},
-							{
-								loader: 'postcss-loader',
-								options: {
-									sourceMap: true,
-									browsers: ["last 2 version"]
-								}
-							},
-							{
-								loader:'less-loader',
-								options:{
-									sourceMap:true,
-									modifyVars:theme,
-									paths:[
-										helpers.root('node_modules'),
-										helpers.root('src/utils/styles'),
-									]
-								}
+					use: [
+						'style-loader',
+						{
+							loader:'css-loader',
+							options: {
+								modules:false,
+								/* alias: {// 未成功
+									alias_materials:helpers.root('src/materials')
+								} */
 							}
-						],
-					})
+						},
+						{
+							loader: 'postcss-loader',
+							options: {
+								sourceMap: true,
+								browsers: ["last 2 version"]
+							}
+						},
+						{
+							loader:'less-loader',
+							options:{
+								sourceMap:true,
+								modifyVars:theme,
+								paths:[
+									helpers.root('node_modules'),
+									helpers.root('src/utils/styles'),
+								]
+							}
+						}
+					],
 				},
 				{
 					test: /\.(ico|png|jpe?g|gif|svg|woff|woff2|ttf|wav|mp3)$/,
@@ -159,8 +155,7 @@ module.exports = (opt) => {
 			}),
 			new CopyWebpackPlugin([
 				{ from: 'src/materials', to: 'materials' },
-			]),
-			new ExtractTextPlugin('[name].css')
+			])
 		],
 	}
 }; 
