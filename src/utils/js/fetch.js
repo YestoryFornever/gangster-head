@@ -4,8 +4,8 @@ import fetch from 'isomorphic-fetch'
 promise.polyfill();
 
 export const _json = (options) => {
-	// options.url = location.origin+"/api/" + options.url;
-	options.url = "http://127.0.0.1:2109/api/" + options.url;
+	let host = __APIHOST__;
+	options.url = host||location.origin+"/api/" + options.url;
 	const { url, type, data, ...others } = options;
 	let opts = {
 		...others,

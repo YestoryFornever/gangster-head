@@ -27,6 +27,18 @@ if (pkg.theme && typeof (pkg.theme) === 'string') {
 	theme = pkg.theme;
 }
 
+let API_HOST = "";
+switch (process.env.NODE_ENV) {
+	case 'prod':
+	case 'production':
+		API_HOST = "";
+		break;
+	case 'dev':
+	case 'development':
+	default:
+		API_HOST = "http://127.0.0.1:2109";
+}
+
 module.exports = (opt) => {
 	return {
 		entry: {
@@ -128,6 +140,9 @@ module.exports = (opt) => {
 			]
 		},
 		plugins: [
+			new webpack.DefinePlugin({
+				__APIHOST__:JSON.stringify(API_HOST)
+			}),
 			new webpack.DllReferencePlugin({
 				manifest: helpers.root('dlls/manifest.json'),
 				extensions:['js','jsx']
