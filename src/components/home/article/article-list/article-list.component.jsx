@@ -8,6 +8,8 @@ import { Button, Timeline } from 'antd'
 
 import { Path, DateTime } from 'alias_utils/js/lib';
 
+import Wheel from 'alias_utils/common/wheel/wheel.container';
+
 let calcDate = (d)=>{
 	// return "周" + "日一二三四五六".charAt(new Date(d).getDay());
 	return DateTime.dateformat(new Date(d),'yyyy-MM-dd h:m:s')
@@ -53,6 +55,9 @@ export default class ArticleList extends Component{
 						)}
 					</ul>
 				</main>
+				<nav className="nav-wheel">
+					<Wheel />
+				</nav>
 			</div>
 		)
 	}

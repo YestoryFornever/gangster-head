@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
 
 import { Button } from 'antd'
 
-import Wheel from 'alias_utils/common/wheel/wheel.container';
 import Nav from './nav/nav.container'
 import Article from './article/article.container'
 
@@ -33,9 +32,6 @@ const Home = ({ match, onLogin, onLogout, authenticated, test }) => {
 					}
 				</header>
 			</aside> */}
-			<nav className="nav-wheel">
-				<Wheel />
-			</nav>
 		</div>
 	)
 };
