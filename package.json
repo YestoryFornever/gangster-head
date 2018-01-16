@@ -4,11 +4,12 @@
   "description": "webpack-react-starter",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --colors",
-    "build": "webpack",
     "dll": "webpack --config config/dll.config.js",
-    "mac": "NODE_ENV=prod&&webpack -p --progress --colors",
-    "win": "set NODE_ENV=prod&&webpack -p --progress --colors",
+    "start": "NODE_ENV=dev&&webpack-dev-server --progress --colors",
+    "start:win": "set NODE_ENV=dev&&webpack-dev-server --progress --colors",
+    "build:dev": "NODE_ENV=dev&&webpack -p --progress --colors",
+    "build:prod": "NODE_ENV=prod&&webpack -p --progress --colors",
+    "build:win": "set NODE_ENV=prod&&webpack -p --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
