@@ -7,7 +7,7 @@ switch (process.env.NODE_ENV) {
 		break;
 	case 'test':
 	case 'testing':
-		module.exports = require('./config/webpack.test')({ env: 'test' });
+		module.exports = require('./config/webpack.test')({ env: 'testing' });
 		break;
 	case 'dev':
 	case 'development':

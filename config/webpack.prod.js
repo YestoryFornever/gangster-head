@@ -3,6 +3,7 @@ const webpackMerge = require('webpack-merge');
 const path = require('path');
 const helpers = require('./helpers');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 const HotModuleReplacementPlugin = webpack.HotModuleReplacementPlugin;
 const ProvidePlugin = webpack.ProvidePlugin;
@@ -10,28 +11,13 @@ const ProvidePlugin = webpack.ProvidePlugin;
 const node_modules_path = __dirname + '/node_modules/';
 const commonConfig = require('./webpack.common.js');
 
-/**
- * Webpack 常量
- */
-const ENV = process.env.ENV = process.env.NODE_ENV = 'production';
-const HOST = process.env.HOST || '127.0.0.1';
-const PORT = process.env.PORT || 8080;
-const METADATA = webpackMerge(commonConfig({
-	env: ENV
-}).metadata, {
-	host: HOST,
-	port: PORT,
-	ENV: ENV,
-	HMR: false
-});
+const extractCSS = new ExtractTextPlugin({filename:'[name]-css.css'});
+const extractLESS = new ExtractTextPlugin({filename:'[name]-less.css'});
+const theme = require('./theme');
 
 module.exports = (opt) => {
-	isProd = options.env === 'production';
-	if (isProd) {
-		METADATA.baseUrl = '/gsj/';
-	};
 	return webpackMerge(
-		commonConfig(),
+		commonConfig(opt),
 		{
 			output: {
 				filename: '[name].[hash].bundle.js',
@@ -41,7 +27,7 @@ module.exports = (opt) => {
 				rules: [
 					{
 						test: /\.css$/,
-						use: ExtractTextPlugin.extract({
+						use: extractCSS.extract({
 							fallback: 'style-loader',
 							use: [
 								{
@@ -58,14 +44,13 @@ module.exports = (opt) => {
 								}
 							]
 						}),
-						include: helpers.root('src')//白名单
+						// include: helpers.root('src')//白名单
 					},
 					{
 						test: /\.less$/,
-						use: ExtractTextPlugin.extract({
+						use: extractLESS.extract({
 							fallback: 'style-loader',
 							use:[
-								'style-loader',
 								{
 									loader: 'css-loader',
 									options: {
@@ -78,7 +63,16 @@ module.exports = (opt) => {
 										browsers: ["last 2 version"]
 									}
 								},
-								'less-loader'
+								{
+									loader:'less-loader',
+									options:{
+										modifyVars:theme,
+										paths:[
+											helpers.root('node_modules'),
+											helpers.root('src/utils/styles'),
+										]
+									}
+								}
 							]
 						}),
 					},
@@ -86,6 +80,13 @@ module.exports = (opt) => {
 			},
 			devtool: 'source-map',//生成sourcemap文件,便于调试
 			plugins:[
+				/* 
+				 * when using 
+				 * new UglifyJsPlugin 
+				 * and 
+				 * webpack -p --progress --colors[--opimize-minimize (or -p)] 
+				 * you are adding the UglifyJsPlugin twice
+				 */
 				new UglifyJsPlugin({
 					beautify: false, //prod
 					output: {
@@ -110,7 +111,11 @@ module.exports = (opt) => {
 						drop_console: true
 					},
 				}),
-				new ExtractTextPlugin('[name].css')
+				new webpack.DefinePlugin({
+					__APIHOST__:JSON.stringify(false)
+				}),
+				extractCSS,
+				extractLESS
 			]
 		}
 	)
