@@ -2,7 +2,8 @@ import './manager.less'
 import React, { Component, PropTypes } from 'react'
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 
-import { Button } from 'antd'
+import Button from 'antd/lib/button'
+
 import Async from 'alias_utils/common/async/async.component'
 import loadTopic from 'bundle-loader?lazy!./topic.component'
 

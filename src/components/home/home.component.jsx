@@ -3,7 +3,7 @@ import './home.less'
 import React, { Component, PropTypes } from 'react'
 import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
 
-import { Button } from 'antd'
+// import { Button } from 'antd'
 
 import Nav from './nav/nav.container'
 import Article from './article/article.container'

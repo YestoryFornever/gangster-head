@@ -54,8 +54,13 @@ module.exports = (opt) => {
 								'@babel/react'
 							],
 							plugins:[
-								["import", { "libraryName": "antd", "style": true }],
-								// "@babel/plugin-transform-runtime"
+								/* 
+								 * 'babel-plugin-import'
+								 * ["import", { "libraryName": "antd", "style": true }],
+								 */
+								/* 
+								 * "@babel/plugin-transform-runtime"
+								 */
 							]
 						}
 					},

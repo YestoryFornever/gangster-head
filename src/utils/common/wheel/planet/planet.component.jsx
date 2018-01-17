@@ -1,7 +1,7 @@
 import './planet.less'
 import React, { Component, PropTypes } from 'react'
 
-import {Tooltip} from 'antd'
+import Tooltip from 'antd/lib/tooltip'
 
 const Planet = ({wheeling, deg, wheelingPause, wheelingRun, skew, tooltip, icon, onPlanetClick}) => (
     <Tooltip placement="right" title={tooltip}>

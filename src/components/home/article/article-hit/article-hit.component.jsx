@@ -9,7 +9,9 @@ import 'codemirror/mode/markdown/markdown'
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/monokai.css'
 
-import { Modal, Input, message } from 'antd'
+import Modal from 'antd/lib/modal'
+import Input from 'antd/lib/input'
+import message from 'antd/lib/message'
 
 import CodeBlock from 'alias_utils/common/code-block/code-block.component';
 
