@@ -14,7 +14,7 @@ const commonConfig = require('./webpack.common.js');
 const extractCSS = new ExtractTextPlugin({filename:'[name]-css.css'});
 const extractLESS = new ExtractTextPlugin({filename:'[name]-less.css'});
 const theme = require('./theme');
-
+console.log('prod-webpack');
 module.exports = (opt) => {
 	return webpackMerge(
 		commonConfig(opt),

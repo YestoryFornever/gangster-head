@@ -1,7 +1,7 @@
 *.log
-/node_modules/
-/dist/
-/dlls/
+node_modules/
+dist/
+dlls/
 *.mp3
 
 src/materials/javascript/wololo.js
