@@ -2,7 +2,8 @@ import './login.less';
 import React, { Component, PropTypes } from 'react';
 import { Route, Link } from 'react-router-dom';
 
-import Button from 'antd/lib/button'
+import Button from 'antd/lib/button';
+
 const FormItem = Form.Item;
 
 const Login = ({ onLogin, authenticated }) => {
