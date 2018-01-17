@@ -3,6 +3,7 @@ const webpackMerge = require('webpack-merge');
 const path = require('path');
 const helpers = require('./helpers');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const HotModuleReplacementPlugin = webpack.HotModuleReplacementPlugin;
 const ProvidePlugin = webpack.ProvidePlugin;
 
@@ -95,6 +96,21 @@ module.exports = (opt) => {
 				// hot: true //--hot[package.json]
 			},
 			plugins: [
+				/* 
+				 * Dll是将不太修改的公共包提前单独打好，这样编译时不用编译公共包，
+				 * 开发时编译速度非常快
+				 * 且线上代码没有hash，可以缓存
+				 * 缺点是公共包全量打，比较大
+				 * 因此暂时仅在开发环境使用
+				 */
+				new webpack.DllReferencePlugin({
+					manifest: helpers.root('dlls/manifest.json'),
+					extensions:['js','jsx']
+				}),
+				new AddAssetHtmlPlugin({
+					filepath: require.resolve(helpers.root('dlls/stuff.dll.js')),
+					includeSourcemap: false
+				}),
 				new webpack.DefinePlugin({
 					__APIHOST__:JSON.stringify("http://127.0.0.1:2109")
 				}),

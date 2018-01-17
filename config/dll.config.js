@@ -24,6 +24,12 @@ module.exports = {
 			"redux",
 			"redux-thunk",
 		],
+		/* history:["history"],
+		jquery:["jquery"],
+		react:["react","react-dom","react-redux","react-router-dom","react-router-redux"],
+		redux:["redux","redux-thunk"],
+		antd:["antd"],
+		third:["react-codemirror","react-markdown"], */
 	},//入口文件
 	output: {
 		path: helpers.root('dlls'),

@@ -91,9 +91,9 @@ import 'antd/lib/tooltip/style';
 /**
  * audio
  */
-/* import audio_ding from 'alias_materials/videoes/ding.mp3'
+import audio_ding from 'alias_materials/videoes/ding.mp3'
 import audio_du from 'alias_materials/videoes/du.mp3'
-import audio_diu from 'alias_materials/videoes/diu.mp3' */
+import audio_diu from 'alias_materials/videoes/diu.mp3'
 
 render(
 	<Provider store={store}>
@@ -121,9 +121,9 @@ render(
 				</div>
 			</Router>
 			{/* <DevTools /> */}
-			{/* <audio id="audio_ding" src={audio_ding} ></audio>
+			<audio id="audio_ding" src={audio_ding} ></audio>
 			<audio id="audio_du" src={audio_du} ></audio>
-			<audio id="audio_diu" src={audio_diu} ></audio> */}
+			<audio id="audio_diu" src={audio_diu} ></audio>
 		</div>
 	</Provider>,
 	document.getElementById('app')

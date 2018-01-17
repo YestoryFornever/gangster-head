@@ -4,7 +4,6 @@ const path = require('path');
 const helpers = require('./helpers');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
 const node_modules_path = __dirname + '/node_modules/';
 const commonConfig = require('./webpack.common.js');
@@ -73,10 +72,6 @@ module.exports = (opt) => {
 			]
 		},
 		plugins: [
-			new webpack.DllReferencePlugin({
-				manifest: helpers.root('dlls/manifest.json'),
-				extensions:['js','jsx']
-			}),
 			new webpack.optimize.CommonsChunkPlugin({
 				name: "vendor",
 				minChunks: function (module) {
@@ -93,10 +88,6 @@ module.exports = (opt) => {
 				favicon: 'src/favicon.ico',
 				inject: 'body',
 				hash: true
-			}),
-			new AddAssetHtmlPlugin({
-				filepath: require.resolve(helpers.root('dlls/stuff.dll.js')),
-				includeSourcemap: false
 			}),
 			new CopyWebpackPlugin([
 				{ from: 'src/materials', to: 'materials' },
