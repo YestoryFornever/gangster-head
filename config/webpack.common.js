@@ -72,6 +72,11 @@ module.exports = (opt) => {
 			]
 		},
 		plugins: [
+			/* 
+			 * 在多个entry点抽取公共模块打成chunk包存入缓存
+			 * 减小包大小
+			 * 提升浏览器性能
+			 */
 			new webpack.optimize.CommonsChunkPlugin({
 				name: "vendor",
 				minChunks: function (module) {
