@@ -5,7 +5,7 @@ promise.polyfill();
 
 export const _json = (options) => {
 	let host = __APIHOST__;
-	options.url = host||location.origin+"/api/" + options.url;
+	options.url = (host||location.origin)+"/api/" + options.url;
 	const { url, type, data, ...others } = options;
 	let opts = {
 		...others,
